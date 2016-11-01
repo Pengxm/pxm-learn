@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+            display: none;
+        }
+        .menus{
+
+        }
+        .menus .menu{
+            float:left;
+            margin-left:4px;
+        }
+        .menus .menu button{
+            padding:4px;
+        }
+        .menus ul.sub-menu{
+            background:#c1d2e3;
+        }
+        .menus ul li{
+            padding-left:4px;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="example">-->
+           <!--<div class="menus">-->
+                <!--<div class="menu">-->
+                    <!--<button>-->
+                        <!--{buttonName}-->
+                    <!--</button>-->
+                    <!--<ul class="sub-menu">-->
+                        <!--<li>1</li>-->
+                        <!--<li>2</li>-->
+                        <!--<li>3</li>-->
+                        <!--<li>4</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+                <!--<div class="menu">-->
+                    <!--<button>-->
+                        <!--{buttonName}-->
+                    <!--</button>-->
+                    <!--<ul class="sub-menu">-->
+                        <!--<li>1</li>-->
+                        <!--<li>2</li>-->
+                        <!--<li>3</li>-->
+                        <!--<li>4</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+<!--</div>-->
+<script type="text/babel">
+    var Menu = React.createClass({
+        mover : function() {
+            this.setState({
+                open : true
+            });
+        },
+        mout : function() {
+            this.setState({
+                open : false
+            });
+        },
+        getInitialState : function() {
+            return {
+                open : false
+            }
+        },
+        render : function() {
+            return (
+                    <div className="menu">
+                        <button onMouseOver={this.mover}  onMouseOut={this.mout}>
+                            {this.props.menuData.name}
+                        </button>
+                        <ul className="sub-menu" style={{display : this.state.open ? "block" : "none"}}>
+                            {this.props.menuData.arr.map((el, index) => {
+                                return (<li key = {index} > {el} </li>)
+                            })}
+                        </ul>
+                    </div>)
+        }
+    });
+    var Menus = React.createClass({
+        render : function() {
+            return (<div className="menus">
+                {this.props.data.map((el ,index)=>{
+                    return (<Menu key={index} menuData={el}/>)
+                })}
+            </div>);
+        }
+    });
+    var data = [
+        {
+            name : "menuName",
+            arr : [
+                "menu1",
+                "menu2",
+                "menu3",
+                "menu4"
+            ]
+        },
+        {
+            name : "menuName1111",
+            arr : [
+                "menu-1",
+                "menu-2",
+                "menu-3",
+                "menu-4"
+            ]
+        }
+    ];
+    ReactDOM.render(<Menus data={data} />, document.getElementById("example"));
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+select,
+input,
+img,
+select {
+    vertical-align: middle;
+}
+
+input {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+/*===========start========*/
+.container {
+    width: 100%;
+    overflow: hidden;
+}
+header {
+    overflow: hidden;
+    background: rgba(51, 153, 204, 1);
+}
+.header {
+    width: 1240px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.header-left {
+    float: left;
+}
+.header-right {
+    float: right;
+}
+.header-right li {
+    float: left;
+    padding: 20px 0;
+}
+.header-right li a {
+    display: block;
+    width: 32px;
+    height: 26px;
+    background: url("../images/wechat.png") no-repeat center;
+    margin-left: 15px;
+}
+.header-right li.data a {
+    background-image: url("../images/data.png");
+}
+.header-right li.msg a {
+    background-image: url("../images/msg.png");
+}
+.header-right li a i {
+    background-color: #f40;
+    font-size: 8px;
+    font-family: "宋体";
+    text-align: center;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    line-height: 15px;
+}
+.header-right li.user-wrap:hover{
+    animation: opacity 1s forwards;
+    -webkit-animation: opacity 1s forwards;
+    -ms-animation: opacity 1s forwards;
+    -o-animation: opacity 1s forwards;
+    -moz-animation: opacity 1s forwards;
+}
+@keyframes opacity {
+    0% { background: rgba(51, 153, 204, 1) }
+    100% { background: rgba(255, 255, 255, .2) }
+}
+@-webkit-keyframes opacity {
+    0% { background: rgba(51, 153, 204, 1) }
+    100% { background: rgba(51, 153, 204, .2) }
+}
+@-ms-keyframes opacity {
+    0% { background: rgba(51, 153, 204, 1) }
+    100% { background: rgba(51, 153, 204, .2) }
+}
+@-o-keyframes opacity {
+    0% { background: rgba(51, 153, 204, 1) }
+    100% { background: rgba(51, 153, 204, .2) }
+}
+@-moz-keyframes opacity {
+    0% { background: rgba(51, 153, 204, 1) }
+    100% { background: rgba(51, 153, 204, .2) }
+}
+
+
+
+

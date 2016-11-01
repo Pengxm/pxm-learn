@@ -1,0 +1,189 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+s {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+em,
+i {
+    font-style: normal;
+}
+strong {
+    font-weight: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+body {
+    font-size: 1.8rem;
+    font-family: "Microsoft YaHei";
+}
+ul,
+ol {
+    list-style-type: none;
+}
+select,
+input,
+img,
+select {
+    vertical-align: middle;
+}
+input {
+    font-size: 1.6rem;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+img {
+    display: block;
+    width: 100%;
+}
+html {
+    font-size: 62.5%;
+}
+/*=========start===========*/
+.container {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 1.5rem;
+}
+.orderWrap {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+header {
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    padding:.6rem 0;
+    background-color: #66c6ff;
+}
+.orderWrap h2 {
+    font-size: 1.6rem;
+    color: #343434;
+    margin: 1rem 0 1rem .5rem;
+}
+.wrap {
+    width: 100%;
+    position: relative;
+    padding: .5rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.wrap .square {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #cda874;
+    box-sizing: border-box;
+}
+.wrap .square:nth-child(1) {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.wrap .square2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.wrap .square:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+.wrap .square:nth-child(4) {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+.order {
+    width: 100%;
+    border: 1px solid #cda874;
+    padding: 2rem;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    background-color: #fef8e2;
+}
+.order ul li {
+    margin-top: 1rem;
+    color: #3f3f40;
+}
+.order ul li:first-child {
+    margin-top: 0;
+}
+.order ul li span {
+    color: #d73a57;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

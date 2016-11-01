@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn</title>
+</head>
+<body>
+    <h2>文件上传： http://www.cnblogs.com/wzls/p/5714273.html</h2>
+</body>
+</html>
+<script>
+    window.onload = function () {
+
+        console.log("im a lasagna hog".split(" ").reverse().join(""));
+//        var foo = "Hello";
+//        (function(){
+//            var bar = "World";
+//            alert(foo + bar);
+//        })();
+        var foo = [];
+        foo.push(1);
+        foo.push(2);
+        console.log(foo.length);
+        var fool = {};
+        fool.bar = "hello";
+        console.log(fool.length);
+
+
+//        var a = {n:1};
+//        var b = a;
+//        a.x = a = {n:2};
+//        console.log(a.x);
+//        console.log(b.x);
+//        console.log(a);
+
+//        function f1(){
+//            var n = 999;
+//            function f2(){
+//                alert(n);
+//            }
+//            return f2;
+//        }
+//        var result = f1();
+
+//        var name = 'the Window';
+//        var object = {
+//            name : 'my Object',
+//            getNameFunc : function(){
+//                return function(){
+//                    return this.name;
+//                }
+//            }
+//        }
+//        alert(object.getNameFunc()());        // '   ';    空白
+
+//        var name = "The Window";
+//        var object = {
+//            name : "My Object",
+//            getNameFunc : function(){
+//                var that = this;
+//                return function(){
+//                    return that.name;
+//                };
+//            }
+//        };
+//        alert(object.getNameFunc()());  // My Object
+//
+//        var str="Hello world!"
+//        document.write(str.indexOf("Hello") + "<br />"); //0
+//        document.write(str.indexOf("World") + "<br />"); // -1
+//        document.write(str.indexOf("world")); //6
+
+
+//        console.log((8).toString(2));     //1000
+//        console.log((8).toString(8));     //10
+//        console.log((8).toString(16));     //8
+//        console.log(0.1+0.2);         //0.30000000000000004
+//        console.log(0.1+0.2+0.3);     //0.60000000000000001
+//        console.log(0.1+(0.2+0.3));   //0.60000000000000000
+
+        var names = ['a', 'b', 'c'];
+        var upper = names.map(function(name){
+            return name.toUpperCase();
+        });
+        console.log(upper);
+
+
+
+        function buildString(n,callback){
+            var res='';
+            for(var i=0;i<n;i++){
+                res+=callback(i);
+            }
+            return res;
+        }
+
+        var aIndex='a'.charCodeAt(0);//97
+        var alphabet=buildString(26,function(i){
+            return String.fromCharCode(aIndex+i);
+        });
+        var digits=buildString(10,function(i){
+            return i;
+        });
+        var random=buildString(8,function(){
+            return String.fromCharCode(Math.floor(Math.random()*26)+aIndex);
+        });
+
+        console.log(aIndex+'\n' + alphabet+'\n' + digits+'\n' + random);
+
+
+
+
+
+
+
+
+    };
+</script>

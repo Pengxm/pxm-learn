@@ -1,0 +1,382 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+select,
+input,
+img,
+select {
+    vertical-align: middle;
+}
+
+input {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+/*====start============*/
+.container {
+    width: 1366px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fffaf0;
+}
+header {
+    width: 100%;
+    height: 412px;
+    background: url("../images/banner_01.jpg") no-repeat center;
+}
+.header {
+    width: 1094px;
+    margin: 0 auto;
+    padding: 77px 0 0 0;
+    box-sizing: border-box;
+}
+.people,.total,.discipleLeft,.discipleRight {
+    display: inline-block;
+}
+header label {
+    width: 207px;
+    height: 237px;
+    display: inline-block;
+    position: relative;
+    background: url("../images/zigong_03.png") no-repeat center;
+}
+.introduce {
+    color: #7e0204;
+    font-size: 20px;
+    display: block;
+    margin: 12px 0;
+}
+header label .radio {
+    visibility: hidden;
+}
+label .radio,.radioImg {
+    position: absolute;
+    top: 290px;
+    left: 84px;
+    width: 38px;
+    height: 38px;
+}
+label .radioImg::before {
+    content: "";
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url("../images/checkedf_07.png") no-repeat center;
+}
+label span.act::before {
+    background-image: url("../images/checked_07.png");
+}
+.introduce {
+    display: block;
+    text-align: center;
+}
+.total {
+    position: relative;
+    top: 47px;
+    left: 10px;
+    z-index: 2;
+}
+.total p {
+    color: #7e0204;
+    font-size: 20px;
+}
+.yy {
+    position: absolute;
+    left: 0;
+    bottom: 26px;
+    width: 93px;
+    height: 71px;
+    background: url("../images/yy_03.png") no-repeat center;
+}
+.zhu {
+    width: 39px;
+    height: 170px;
+}
+.box {
+    position: relative;
+    background: url('../images/zhuTit_03.jpg') no-repeat left top,
+    url("../images/zhuBg_03.png") repeat-y;
+    border-radius: 0 0 5px 5px ;
+    overflow: hidden;
+}
+.child {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
+    z-index: 5;
+    background: url('../images/zhuT_03.jpg') no-repeat left top,
+    url("../images/zhuBody_06.png") repeat-y;
+}
+.discipleRight {
+    float: right;
+}
+.discipleRight label {
+    width: 222px;
+    height: 237px;
+    background-image: url("../images/yanhui_05.png");
+}
+.discipleRight label .radioImg,.discipleRight label .radio {
+    left: 95px;
+}
+.discipleRight .total {
+    right: 10px;
+    left: 0;
+}
+.lunbo {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-family: "微软雅黑";
+    height: 150px;
+    overflow: hidden;
+    padding: 1px 0;
+    position: relative;
+}
+.lunbo ul {
+    padding-top: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.5;
+    text-align: center;
+    width: 100%;
+}
+/*==========body============*/
+@font-face {
+    /* font-properties */
+    font-family: fangzheng;
+    src:url('../fangzheng.ttf'),
+    url('../fangzheng.woff'),
+    url('../fangzheng.eot');
+;
+}
+.body {
+    width: 1094px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-top: 20px solid #6c5b43;
+    border-right: 30px solid #6c5b43;
+    border-bottom: 20px solid #6c5b43;
+    border-left: 30px solid #6c5b43;
+    box-sizing: border-box;
+}
+.border {
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.border>div {
+    padding: 3px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.bodyWrap {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 15px;
+    color: #3e3e3e;
+    font-size: 22px;
+    line-height: 2;
+    font-family: fangzheng;
+    border: 2px solid #959186;
+}
+h1 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 66px;
+
+}
+.bodyWrap label {
+    position: relative;
+    padding:0 35px 0 52px;
+}
+.bodyWrap input {
+    width: 226px;
+    font-size: 22px;
+    text-align: center;
+    font-family: fangzheng;
+    background-color: #fffaf0;
+    border-bottom: 1px dashed #3e3e3e;
+}
+.bodyWrap .radio {
+    width: 38px;
+    height: 38px;
+}
+.bodyWrap label .radio,.bodyWrap .radioImg {
+    left: 0;
+    top: -7px;
+}
+.bodyWrap li {
+    margin-top: 30px;
+}
+.bodyWrap li:first-child {
+    margin-top: 0;
+}
+footer {
+    width: 100%;
+    font-size: 22px;
+    color: #3e3e3e;
+    overflow: hidden;
+    line-height: 1.8;
+    padding-bottom: 30px;
+    background-color: #fff;
+}
+footer dl {
+    width: 1094px;
+    margin: 0 auto;
+}
+footer dt {
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.popup a, .popup span {
+    font-size: 20px;
+    color: #7b0002;
+}
+.popup a { text-decoration: underline; }
+.submit {
+    background-color: #ed8810;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 30px auto 20px;
+    width: 120px;
+    font: 22px "微软雅黑";
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    box-shadow: 0 0 5px rgba(0,0,0, .8);
+    border: 2px solid #6c5b43;
+    z-index: 10;
+    font-size: 20px;
+    background-color: #fff;
+    font-family: "微软雅黑";
+}
+.popup p {
+    margin: 20px 0 30px;
+}
+.button {
+    width: 150px;
+    padding: 15px 0;
+    display: block;
+    background-color: rgb(237, 136, 16);
+    color: #fff;
+    font: 16px "微软雅黑";
+    margin: 20px auto 0;
+    border-radius: 5px;
+}
+
+
+
+

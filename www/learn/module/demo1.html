@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" >
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>标题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul {
+            overflow-x: auto;
+            width: 300%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        li {
+            width: 11%;
+            float: left;
+            height: 100px;
+            box-sizing: border-box;
+            background-color: seagreen;
+            overflow: hidden;
+            background: url("2.png") no-repeat center;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    (function (){
+        var liWidth = $('li').get(0).offsetWidth;
+        console.log(liWidth);
+        var n = 0;
+        function Boxscroll(){
+            $('li').click(function (event){
+                event = event || window.event;
+                event.preventDefault();
+                event.stopPropagation();
+                n = $(this).index();
+                console.log(n);
+                if(n > 1){
+                    $('ul').animate({'left': -liWidth*(n-1)+'px'}, 500);
+                } else if (n == 1) {
+                    $('ul').animate({'left': 0}, 500);
+                }
+            });
+        }
+        Boxscroll();
+    })();
+</script>
+<script>
+    (function(){
+//        function Universe(){
+//            if (typeof Universe.instance === "object") {
+//                return Universe.instance;
+//            }
+//            //正常运行
+//            this.start_time = 0;
+//            this.bang = "Big";
+//
+//            //缓存
+//            Universe.instance = this;
+//            //隐式返回
+//            //return this;
+//        }
+//        var uni = new Universe();
+//        var uni2 = new Universe();
+//        console.log(uni === uni2 );  //true
+//
+//        function Person(name,age,job){
+//            this.name = name;
+//            this.age = age;
+//            this.job = job;
+//            this.friends = ["jie","fei"];
+//
+//        }
+//
+////        Person.prototype = {
+////            constructor : Person,
+////            sayName : function(){
+////                alert(this.name);
+////            }
+////        }
+//        Person.prototype.sayName = function(){
+//            alert(this.name);
+//        };
+//        var  person1 = new  Person("jie",24,"web");
+//        var person2 = new Person("fei",24,"teacher");
+//
+//        person1.friends.push("wang");
+//        alert(person1.friends);   // jie fei wang
+//        alert(person2.friends);  // jie fei
+//        alert(person1.friends == person2.friends); // false
+//        alert(person1.sayName == person2.sayName); // true
+
+
+
+        function SuperType(name){
+            this.name = name;
+            this.colors = ["red","blue"];
+        }
+        SuperType.prototype.sayName = function(){
+            console.log(this.name);   // jie
+        };
+        function SubType(name,age){
+            //继承属性
+            SuperType.call(this,name);
+            this.age = age;
+        }
+        //继承方法
+        SubType.prototype = new SuperType();
+        SubType.prototype.constructor = SubType;
+        //添加方法
+        SubType.prototype.sayAge = function(){
+            console.log(this.age);  // 23
+        };
+        var instance1 = new SubType("jie", 23);
+        instance1.colors.push("green");
+        console.log(instance1.colors); // red blue green
+        console.log(instance1.sayName()); // undefined
+        console.log(instance1.sayAge()); // undefined
+
+//        var instance2 = new SubType("fei",23);
+//        console.log(instance2.colors);
+//        console.log(instance2.sayName());  // undefined
+//        console.log(instance2.sayAge());  // undefined
+    })();
+
+
+</script>
+

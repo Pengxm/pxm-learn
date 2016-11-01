@@ -1,0 +1,34 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    /*width: 31.5%;
+    height: 42.5%;
+    left: 34.6%;
+    top: 23%;*/
+    background: lightgreen;
+
+    -webkit-animation: run 10s linear;
+    animation: run 10s linear;
+}
+
+@keyframes run {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(7200deg);
+    }
+}
+@-webkit-keyframes run {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(7200deg);
+    }
+}

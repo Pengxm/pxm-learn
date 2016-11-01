@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <style type="text/css">
+
+        #wrap {
+
+            width: 600px;
+
+            height: 600px;
+
+            background-color: #EEEEEE;
+
+        }
+
+        #sourceDiv {
+
+            float: left;
+
+            border: 2px solid blue;
+
+        }
+
+        #canvasDiv {
+
+            float: right;
+
+            border: 2px solid red;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!--最大的wrap-->
+
+<div id="wrap">
+
+    <div id="sourceDiv">
+
+        <!--图片-->
+
+        <img id="img" src="web/phone/images/1.png" />
+
+    </div>
+
+    <!--画布-->
+
+    <div id="canvasDiv">
+
+        <canvas id="canvas"></canvas>
+
+    </div>
+
+</div>
+
+<button type="button" id="btn">试一试</button>
+
+</body>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+
+        var img = document.getElementById("img");
+
+        var canvas = document.getElementById("canvas");
+
+        var btn = document.getElementById("btn");
+
+        canvas.width = img.clientWidth;
+
+        canvas.height = img.clientHeight;
+
+        pen = canvas.getContext("2d");
+
+        pen.drawImage(img, 0, 0, canvas.width, canvas.height); //把图片放在画布上
+
+    };
+
+    //getImageData(x,y,width,height) 复制画布上指定矩形的像素数据 然后通过putImageData()将图像数据放回画布：
+
+    //返回ImageData对象，该对象拷贝了画布指定矩形的像素数据
+
+    //对于 ImageData 对象中的每个像素，都存在着四方面的信息rgba,
+
+    //color/alpha 信息以数组形式存在，并存储于 ImageData 对象的 data 属性中
+
+    //即 RGBA 值 eg:red=ImageData.data[0];
+
+    btn.onclick = function() {
+
+        var imgData = pen.getImageData(0, 0, canvas.width, canvas.height);
+
+        var len = canvas.width * canvas.height * 4;
+
+//遍历imgData.data改变像素值
+
+        for(var i = 0; i < imgData.data.length; i += 4) {
+
+//每一个像素的color/alpha 信息
+
+//取反色
+
+            imgData.data[i] = 255 - imgData.data[i];
+
+            imgData.data[i + 1] = 255 - imgData.data[i + 1];
+
+            imgData.data[i + 2] = 255 - imgData.data[i + 2];
+
+            imgData.data[i + 3] = 255;
+
+        }
+
+// 将图像数据imgData放回画布
+
+//putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight);
+
+//在画布上的位置x y  在画布上放置图像的位置水平位置偏移量 垂直位置偏移量  图像宽度
+
+        pen.putImageData(imgData, 0, 0);
+
+    }
+
+</script>
+
+</html>

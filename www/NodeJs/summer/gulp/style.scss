@@ -1,0 +1,220 @@
+@import "_lib.scss";
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {margin:0; padding:0; border:none; list-style: none;}
+em,i{font-style:normal;}
+strong{font-weight: normal;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both;}
+.clearfix{zoom:1;}
+body {
+  font-size: 14rem/@base;
+  background-color: #e0e0e0;
+  font-family: "Microsoft YaHei";
+}
+ul, ol {
+  list-style-type: none;
+}
+select, input, img, select {
+  vertical-align: middle;
+}
+input {
+  font-size: 26rem/@base;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.clear {
+  clear: both;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+// ===========start============
+
+.container {
+  max-width: 540px;
+  margin: 0 auto;
+  background-color: #0f1567;
+  padding-bottom: 70rem/@base;
+  overflow: hidden;
+}
+.header {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.rule {
+  position: absolute;
+  right: 12rem/@base;
+  bottom: 21rem/@base;
+  width: 79rem/@base;
+  height: 98rem/@base;
+  background: url("../images/rule_03.png") center no-repeat;
+  background-size: 100% 100%;
+}
+.body {
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  position: relative;
+  top: -16rem/@base;
+}
+.btn {
+  width: 596rem/@base;
+  height: 90rem/@base;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 90rem/@base;
+  font-size: 32rem/@base;
+  background: url("../images/btnBg_03.png") center no-repeat;
+  background-size: 100% 100%;
+}
+.btn a {
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+.txt {
+  text-align: center;
+  font-size: 30rem/@base;
+  color: #fff;
+  padding-top: 5px;
+}
+.prizeWrap {
+  width: 100%;
+  margin-top: 46rem/@base;
+}
+.prizeName {
+  width: 100%;
+  height: 80rem/@base;
+}
+.prizeCon {
+  border: 1px solid #01a6d8;
+  border-top: none;
+  box-sizing: border-box;
+}
+.prize {
+  width: 680rem/@base;
+  height: 276rem/@base;
+  margin: 0 auto;
+  padding: 20rem/@base 16rem/@base;
+  box-sizing: border-box;
+  background: url("../images/prizeBg_10.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.lunboWrap {
+  width: 100%;
+  overflow: hidden;
+}
+.lunbo {
+  width: 100%;
+  overflow: hidden;
+}
+.lunbo li {
+  width: 207rem/@base;
+  height: 240rem/@base;
+  float: left;
+  overflow: hidden;
+  margin-left: 13rem/@base;
+  color: #333;
+  text-align: center;
+  padding-top: 200rem/@base;
+  box-sizing: border-box;
+  font-size: 22rem/@base;
+  background: url("../images/mi_13.png") center no-repeat;
+  background-size: 100% 100%;
+}
+.lunbo li:first-child {
+  margin: 0;
+}
+.lunbo li.camera {
+  background-image: url("../images/camera_13.png");
+}
+.lunbo li.three {
+  background-image: url("../images/5rmb_13.png");
+}
+.lunbo li.four,.lunbo li.five,.lunbo li.six {
+  position: relative;
+  background-image: url("../images/prize-bg_13.png");
+}
+.lunbo li.six {
+  position: relative;
+}
+.lunbo li.four::before,.lunbo li.five::before,.lunbo li.six::before {
+  content: '100M流量包';
+  position: absolute;
+  left: 21rem/@base;
+  top: 62rem/@base;
+  width: 162rem/@base;
+  height: 70rem/@base;
+  background-color: #ffc3c3;
+  color: #670606;
+  line-height: 70rem/@base;
+  font-size: 22rem/@base;
+}
+.lunbo li.five::before {
+  content: '200M流量包';
+}
+.lunbo li.six::before {
+  content: '500M流量包';
+}
+
+.prizeCon p {
+  width: 100%;
+  font-size: 26rem/@base;
+  color: #fff;
+  margin: 45rem/@base 0 15rem/@base;
+  text-align: center;
+}
+.draw {
+  margin-top: 50rem/@base;
+  background: url("../images/drawBg_10.png") center no-repeat;
+  background-size: 100% 100%;
+}
+.myPrize {
+  width: 100%;
+  text-align: center;
+  font-size: 32rem/@base;
+  color: #fff;
+  margin: 22rem/@base 0;
+}
+.myPrize a {
+  text-decoration: underline;
+  color: #e1791d;
+  margin: 0 15rem/@base;
+  font-size: 36rem/@base;
+}
+.footer {
+  width: 100%;
+  padding-top: 60rem/@base;
+}
+.ewm {
+  width: 258rem/@base;
+  height: 258rem/@base;
+  margin: 0 auto;
+}
+.footer p {
+  text-align: center;
+  font-size: 26rem/@base;
+  color: #fff;
+  padding-top: 40rem/@base;
+}
+.slideBox{ position:relative;  overflow:hidden;}
+.slideBox .hd{ position:absolute; height:28px; line-height:28px; bottom:0; right:0; z-index:1; }
+.slideBox .bd{ position:relative; z-index:0; }
+.slideBox .bd li.oLi { position:relative;  }
+.slideBox .bd li img{ width:100%;   display:block;   }
+.slideBox .bd li.oLi .tit{ display:block; width:100%;  position:absolute; bottom:0; text-indent:10px; height:28px; line-height:28px;  color:#fff;   }
+
+
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            width: 1800px;
+            height: 50px;
+            background-color: silver;
+        }
+
+
+        .r-tit-txt {
+            font-size: 14px;
+            font-weight: normal;
+            padding: 1em 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 260px;
+            text-decoration: underline;
+        }
+
+        .r-tit-img {
+            position: relative;
+            width: 260px;
+            height: 148px;
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+        .r-tit-img .r-lb {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 400%;
+        }
+        .r-tit-img .lb-img {
+            float: left;
+            width: 260px;
+            overflow: hidden;
+            background-color: seagreen;
+        }
+
+        .r-tit-img a,.r-tit-img .lb-img img {
+            display: block;
+            width: 100%;
+        }
+        .r-lb-c {
+            position: absolute;
+            left: 100px;
+            bottom: 0;
+        }
+        .r-tit-img .lb-circle {
+            width: 5px;
+            height: 5px;
+            background-color: silver;
+            float: left;
+            margin-left: 5px;
+        }
+        .r-tit-img .r-lb-c .act {
+            background-color: seagreen;
+        }
+        .act-img {
+            background: url('images/right_gou.png');
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<h4 class="r-tit-txt">沃邮箱送好礼，沃邮箱送好礼沃邮箱送好礼沃邮箱送好礼沃邮箱送好礼</h4>
+<div class="r-tit-img">
+    <ul class="r-lb">
+        <li class="lb-img"><a href="javascript:;"><img src="2.png" alt=""></a></li>
+        <li class="lb-img"><a href="javascript:;"><img src="2.png" alt=""></a></li>
+        <!--<li class="lb-img"><a href="javascript:;"><img src="2.png" alt=""></a></li>-->
+    </ul>
+    <ul class="r-lb-c">
+        <li class="lb-circle act"></li>
+        <!--<li class="lb-circle"></li>-->
+        <!--<li class="lb-circle"></li>-->
+    </ul>
+</div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<input type="radio">
+
+<!--<script src="pub-js.js"></script>-->
+<script>
+
+    $(function(){
+
+        $('.company_p').bind('click', function(){
+            $(this).toggleClass('');
+        });
+    });
+    console.log(document.cookie);
+    //    $(function(){
+    //        $("<header></header>").insertBefore("body div:first");
+    //        $("<footer class='foot'></footer>").appendTo("body");
+    //
+    //        /* 加载头尾内容 */
+    //        $("header").load("header.html");
+    //        $("footer").load("footer.txt");
+    //
+    //        $("head").append("<link>");
+    //        css = $("head").children(":last");
+    //        css.attr({
+    //            rel: "stylesheet",
+    //            type: "text/css",
+    //            href: "../assets/css/common.css"
+    //        });
+    //    });
+    //    window.onload = function(){
+    //        console.log($('.foot'))
+    //    }
+    (function () {
+        function Slide(parentBox, childBox, circleBox, circle) {
+            this.parentBox = parentBox;
+            this.childBox = childBox;
+            this.circleBox = circleBox;
+            this.circle = circle;
+        }
+
+        Slide.prototype.slide = function () {
+            var _this = this;
+            var num = 0;
+            var numLi = $(_this.childBox).length;
+            var circle = 0;
+            var $w = $(_this.childBox).get(0).offsetWidth;
+            var timer = null;
+
+            $(_this.circle).click(play);
+
+
+            if(numLi === 1){
+                $(_this.circle).hide();
+                clearInterval(timer);
+            } else if(numLi === 3){
+                timer = setInterval(play, 3000);
+                $(_this.parentBox).append($(_this.childBox).eq(0).clone());
+                $(_this.circleBox).append('<li class="lb-circle"></li><li class="lb-circle"></li>');
+                $(_this.parentBox).mouseout(function () {
+                    timer = setInterval(play, 3000);
+                });
+            } else if(numLi === 2){
+                timer = setInterval(play, 3000);
+                $(_this.parentBox).append($(_this.childBox).eq(0).clone());
+                $(_this.circleBox).append('<li class="lb-circle"></li>');
+                $(_this.parentBox).mouseout(function () {
+                    timer = setInterval(play, 3000);
+                });
+            }
+            function play() {
+                num++;
+                circle++;
+                if (num > numLi) {
+                    $(_this.parentBox).css({'left': 0});
+                    num = 1;
+                }
+                if (circle > (numLi - 1)) {
+                    circle = 0;
+                }
+                $(_this.parentBox).stop().animate({'left': num * -$w}, 500);
+                $(_this.circle).eq(circle).addClass('act').siblings().removeClass('act');
+            }
+
+
+            $(_this.parentBox).mouseover(function () {
+                clearInterval(timer);
+            });
+            $(_this.circle).click(function () {
+                var index = $(this).index();
+                circle = index;
+                num = index;
+                $(_this.parentBox).stop().animate({'left': index * -$w}, 500);
+                $(this).addClass('act').siblings().removeClass('act');
+            });
+
+
+        };
+
+        var s = new Slide('.r-tit-img .r-lb', '.lb-img', '.r-lb-c', '.lb-circle');
+        s.slide();
+    })();
+</script>

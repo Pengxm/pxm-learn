@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Our Love</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="style/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="style/jquery.js"></script>
+    <script type="text/javascript" src="style/garden.js"></script>
+    <script type="text/javascript" src="style/functions.js"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="comments">/**</span><br />
+                <span class="space"/><span class="comments">* Love and Thanks</span><br />
+                <span class="space"/><span class="comments">* Meeting you is my greatest happiness.</span><br />
+                <span class="space"/><span class="comments">* How fortunate I am to know you.</span><br />
+                <span class="space"/><span class="comments">* For the most part, you'll be the reason I got motivation and worked hard.</span><br />
+                <span class="space"/><span class="comments">* Thank you for your being by my side.</span><br />
+                <span class="space"/><span class="comments">* Don't let you down!!!</span><br />
+                <span class="space"/><span class="comments">*/</span><br />
+                <span class="comments">// You are the one and only, me too.</span><br />
+                Boy I = <span class="keyword">new</span> Boy(<span class="string">"PengXinMing"</span>);<br />
+                Girl U = <span class="keyword">new</span> Girl(<span class="string">"HuangHaiYun"</span>);<br />
+                <span class="comments">// January 10 2016, the start of our love. </span><br />
+                I->love(U);<br />
+                <span class="comments">// Darling, my love for you is unflinching.</span><br />
+                <span class="keyword">const boolean</span> ILOVEYOU = <span class="keyword">true</span>;<br />
+                <span class="comments">// Forever love for you.</span><br />
+                <span class="keyword">while</span>(ILOVEYOU) {<br />
+                <span class="comments">// Do my best to take care of you and our love.</span><br />
+                <span class="placeholder"/>I->takeCareOf(U);<br />
+                <span class="comments">// My heart and destination</span><br />
+                <span class="placeholder"/>I->liveHappilyWith(U);<br />
+                }<br />
+
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        You are my love. You are my heart.
+                        <div id="elapseClock" style="display:block"></div>
+                    </div>
+                    <div id="loveu">
+                        Love you forever and ever.<br/>
+                        <div class="signature">- PengXinMing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 10000);
+            $("#elapseClock").show();
+                var together = new Date();
+                var together = new Date();
+           
+                together.setYear(2016);                     //开始年份
+                together.setMonth(0);                       //用于设置月份，该值介于 0（一月） ~ 11（十二月） 之间
+                together.setDate(10);                        //设置一个月的某一天，该值介于 1 ~ 31 之间
+                together.setHours(00);                      //小时    
+                together.setMinutes(00);                    //分钟
+                together.setSeconds(0);                     //秒前一位
+                together.setMilliseconds(2);                //秒第二位
+
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+</body>
+</html>

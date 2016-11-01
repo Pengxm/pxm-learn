@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 500px;
+            height: 200px;
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        h2 {
+            height: 3px;
+            background-color: seagreen;
+            display: inline-block;
+        }
+        .box:hover h2 {
+            animation: run 1s linear forwards;
+        }
+        @keyframes run {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2></h2>
+    </div>
+</body>
+</html>
+<script>
+    (function(){
+        var arr = [1, 5, 12, 6, 3];
+        function px(a, b){
+            return a - b;
+        }
+        arr.sort(px());
+    })();
+//    window.onload = function () {
+//        killdog();
+//        deleteNum(100);
+//    };
+
+    function killdog() {
+        var arr = [];//临时笼子
+        var dogs = [];//100只现成的狗
+        for (var i = 0; i < 100; i++) {
+            dogs[i] = i + 1;
+        }
+        do {
+            for (var j = 0; j < dogs.length; j++) {
+                //偶数的干掉
+                if ((j + 1) % 2 != 0) {
+                    arr.push(dogs[j]);
+                }
+            }
+            dogs = arr;//把临时存储的再次放入狗笼子里面
+            arr = [];//必须清除之前被干掉的狗
+        } while (dogs.length > 2)
+        {
+            document.write("剩余狗的编号为："+dogs);
+        }
+    }
+
+    function deleteNum(arr) {
+        var newarr = [];
+        for (var i = 0, len = arr.length; i < len; i++) {
+            if (i % 2 == 0) {
+                newarr.push(arr[i]);
+            }
+        }
+        arr = newarr;
+        len = arr.length;
+        if (len >= 3) {
+            deleteNum(arr);
+        }
+        else {
+            alert(arr);
+        }
+    }
+//    alert(window.location.host);
+</script>

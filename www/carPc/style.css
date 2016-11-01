@@ -1,0 +1,174 @@
+﻿body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    color: #fff;
+    font: 14px "Microsoft YaHei";
+}
+ul, ol {
+    list-style-type: none;
+}
+select, input, img, select {
+    vertical-align: middle;
+}
+input {
+    font-size: 12px;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+}
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+img {
+    display: block;
+    width: 100%;
+}
+html {
+    font-size: 625%;
+}
+
+/*================start============*/
+.container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #07921f;
+}
+.banner {
+    width: 100%;
+    margin: 0 auto;
+}
+.wrap {
+    width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: -163px;
+    padding: 0 10px 150px;
+    box-sizing: border-box;
+}
+.turnPlate {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.turnPlate .left {
+    float: left;
+    width: 670px;
+    overflow: hidden;
+    position: relative;
+}
+.item {
+    position: absolute;
+    left: 150px;
+    top: 58px;
+}
+.pointer {
+    position: absolute;
+    left: 295px;
+    top: 176px;
+    width: 134px;
+    height: 160px;
+    cursor: pointer;
+}
+.turnPlate .right {
+    float: right;
+    width: 540px;
+    overflow: hidden;
+}
+.right h2 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    padding: 110px 0 40px;
+}
+.right table {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.right td {
+    height: 73px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #07921f;
+}
+.activity {
+    width: 100%;
+    margin-top: 120px;
+    overflow: hidden;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.activity h2,.rule dt {
+    font: bold 36px "微软雅黑";
+    padding-bottom: 30px;
+    letter-spacing: 2px;
+}
+.rule dt { padding-bottom: 25px; }
+.rule dd {
+    font-size: 24px;
+    line-height: 60px;
+}
+.rule dd p {
+    padding-left: 110px;
+}
+.frog {
+    width: 200px;
+    height: 234px;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    z-index: 100;
+}
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    background-color: rgba(0,0,0,.5);
+}
+.alert {
+    width: 444px;
+    height: 472px;
+    background-color: #fde991;
+    margin: 100px auto 0;
+    padding: 60px 60px 30px;
+    box-sizing: border-box;
+}
+.prizeImg {
+    width: 234px;
+    height: 93px;
+    margin: 0 auto 50px;
+}
+.popup p {
+    font-size: 20px;
+    color: #a46618;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.btn {
+    width: 328px;
+    height: 68px;
+    background-color: #fd5819;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    font-size: 30px;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

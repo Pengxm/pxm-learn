@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>symbol</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/babel">
+//    var s = Symbol('s');
+//    var s1 = Symbol('s1');
+//
+//    console.log(s, s1);
+
+//    var s = Symbol();
+//    var s1 = Symbol('s1');
+//
+//    var obj = {
+//        [s] : function() {
+//            console.log(1);
+//        },
+//        [Symbol()] : () => {
+//            console.log(2);
+//        },
+//        [s1] : 3
+//    }
+//
+//    obj[s](); // 1
+//    obj[s1] // 3
+
+    var s = Symbol();
+    var s1 = Symbol('s1');
+
+    var obj = {
+        [s]: function() {
+            console.log(1);
+        },
+        [Symbol()]: () => {
+            console.log(2);
+        },
+        [s1]: 3,
+        a: 4
+    };
+
+
+
+    Object.getOwnPropertySymbols(obj).forEach(function(item) {
+        if (typeof obj[item] === 'function') {
+            obj[item]();
+        } else {
+            console.log(obj[item]);   // 1  2  3
+        }
+    });
+
+
+</script>

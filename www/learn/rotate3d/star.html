@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>star</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            margin: 50px;
+            overflow: hidden;
+        }
+        li {
+            width: 42px;
+            height: 42px;
+            margin: 0 10px;
+            float: left;
+            background: url(http://files.cnblogs.com/files/susufufu/star0.gif) no-repeat;
+            background-size: 100%;
+        }
+        .act {
+            background: url(http://files.cnblogs.com/files/susufufu/star1.gif) no-repeat;
+            background-size: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    var oIndex = 0;
+    $('li').click(function(){
+        oIndex = $(this).index() + 1;
+        $('li').slice(0, oIndex).addClass('act');
+    }).mouseover(function(){
+        var index = $(this).index() + 1;
+        $('li').removeClass('act').css('backgroundImage', 'url(http://files.cnblogs.com/files/susufufu/star0.gif)').slice(0, index).css('backgroundImage', 'url(http://files.cnblogs.com/files/susufufu/star1.gif)');
+    }).mouseout(function(){
+        console.log(oIndex);
+        $('li').css('backgroundImage', 'url(http://files.cnblogs.com/files/susufufu/star0.gif)').slice(0, oIndex).css('backgroundImage', 'url(http://files.cnblogs.com/files/susufufu/star1.gif)');
+    });
+
+
+
+</script>

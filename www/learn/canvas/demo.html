@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>由直线创建路径</title>
+    <style>
+        canvas {border: thin solid orange;}
+        body > * {float: left;}
+        div {
+            width: 100000px;
+            height: 10px;
+            background-color: #ccc;
+        }
+        p {
+            width: 100px;
+            height: 10px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="140">
+        Your browser doesn't support the <code>canvas</code> element
+    </canvas>
+
+    <div></div>
+    <p></p>
+<script type="application/javascript">
+    var ctx = document.getElementById("canvas").getContext("2d");
+    ctx.fillStyle = 'lightblue';
+    ctx.strokeStyle = 'lightcoral';
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(100, 10);
+
+
+    ctx.lineTo(110,120);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(150,10);
+    ctx.lineTo(200,10);
+    ctx.lineTo(200,120);
+    ctx.lineTo(190,120);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(250,10);
+    ctx.lineTo(250,120);
+    ctx.stroke();
+</script>
+</body>
+</html>

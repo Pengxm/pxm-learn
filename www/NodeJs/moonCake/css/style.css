@@ -1,0 +1,364 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+em,
+i {
+    font-style: normal;
+}
+strong {
+    font-weight: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+body {
+    font-size: 16px;
+    background-color: #440108;
+    font-family: "Microsoft YaHei";
+}
+ul,
+ol {
+    list-style-type: none;
+}
+select,
+input,
+img,
+select {
+    vertical-align: middle;
+}
+input {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+img {
+    display: block;
+    width: 100%;
+}
+/*===========start================*/
+.bodyWrap {
+    width: 1240px;
+    margin: 0 auto;
+}
+.bodyTit {
+    margin-top: 12px;
+    text-align: center;
+}
+.user {
+    width: 1240px;
+    margin: 0 auto;
+    text-align: right;
+}
+.user a {
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 24px;
+    display: inline-block;
+}
+.bodyTit span {
+    display: inline-block;
+}
+.woMail {
+    width: 228px;
+    height: 94px;
+}
+.qjd {
+    width: 199px;
+    height: 94px;
+    margin: 0 64px;
+}
+.fs {
+    width: 254px;
+    height: 94px;
+}
+.content {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+}
+.content::before {
+    content: '';
+    width: 206px;
+    height: 365px;
+    position: absolute;
+    left: -247px;
+    top: -206px;
+    z-index: 10;
+    background: url("../images/lantern_03.png") center no-repeat;
+    background-size: 100% 100%;
+}
+.content::after {
+    content: '';
+    width: 206px;
+    height: 365px;
+    position: absolute;
+    right: -238px;
+    top: -206px;
+    z-index: 10;
+    background: url("../images/lantern_03.png") center no-repeat;
+    background-size: 100% 100%;
+}
+.conUl,.pricebtm>div,.conUl>li>ul,.conUl>li>ul>li,.circle {
+    overflow: hidden;
+}
+.conUl { margin-bottom: 50px;}
+.conUl:last-child {
+    margin-bottom: 10px;
+}
+.conUl>li {
+    width: 617px;
+    height: 400px;
+    float: left;
+    overflow: hidden;
+    padding: 32px 37px 0 12px;
+    box-sizing: border-box;
+    background: url('../images/border_03.png') no-repeat center;
+    background-size: 100% 100%;
+}
+.leftImg {
+    width: 311px;
+    height: 322px;
+    position: relative;
+    z-index: -1;
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+}
+.lunbo {
+    width: 400%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.lunbo>li,.circle li  {
+    float: left;
+    overflow: hidden;
+}
+.conLeft>ul>li,.conLeft {
+    position: relative;
+}
+.shade {
+    width: 311px;
+    height: 322px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 25;
+    opacity: 0;
+    filter: alpha(opacity=100);
+}
+.shadeBox {
+    width: 608px;
+    height: 385px;
+    z-index: 50;
+    line-height: 385px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    background: rgba(0,0,0,.8);
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+.circle li {
+    margin: 6px 5px 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.circle li:first-child {
+    margin-left: 245px;
+}
+.circle .act {
+    background-color: #c451b4;
+}
+.rightPrice {
+    overflow: hidden;
+    float: left;
+    width: 256px;
+}
+.priceTit {
+    width: 256px;
+    height: 196px;
+    position: relative;
+}
+.purchase {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    color: #e50013;
+    font-size: 20px;
+}
+.purchase span {
+    /*color: #ffcc5b;*/
+}
+.pricebtm {
+    overflow: hidden;
+    text-align: center;
+    padding: 24px 0 0 31px;
+    box-sizing: border-box;
+}
+.pricebtm>div>span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 34px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    color: #aaa;
+    font-size: 24px;
+    float: left;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pricebtm input {
+    width: 80px;
+    margin: 0 8px;
+    height: 40px;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    color: #e50013;
+    font-size: 28px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #440007;
+}
+.pricebtm p {
+    font-size: 24px;
+    color: #fcdb8f;
+    text-align: left;
+    margin: 30px 0 0 17px;
+}   
+.pricebtm p span {
+    color: #e50013;
+}
+.conRight {
+    float: right;
+}
+.shop {
+    width: 100%;
+    height: 840px;
+    margin: 0 auto;
+    background: url("../images/bgBanner_07.jpg") no-repeat center;
+    background-size: 1511px 840px;
+}
+.shopWrap {
+    width: 1240px;
+    margin: 0 auto;
+    padding: 230px 0 0 808px;
+    box-sizing: border-box;
+}
+.shopWrap dl {
+    margin-bottom: 30px;
+}
+.shopWrap dt,.shopWrap dd {
+    display: inline-block;
+    font-size: 40px;
+    color: #ffdd90;
+}
+.shopWrap dt {
+    width: 280px;
+}
+.shopWrap .btn {
+    width: 276px;
+    height: 70px;
+    cursor: pointer;
+    margin: 90px 0 0 46px;
+}
+footer {
+    width: 1270px;
+    height: 801px;
+    margin: 0 auto;
+    background: url("../images/borderBg_11.png") no-repeat center;
+    background-size:100% 100% ;
+}
+.footer {
+    width: 1240px;
+    margin: 0 auto;
+    color: #ffdd90;
+    padding: 80px 50px 0 37px;
+    box-sizing: border-box;
+}
+.footer h3 {
+    font-size: 36px;
+}
+.footer ul {
+    font-size: 30px;
+    line-height: 2.2;
+}
+.kf {
+    width: 100%;
+    height: 200px;
+    background-color:#fff;
+    color: #440007;
+    font-size: 24px;
+    line-height: 200px;
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,178 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone = no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <style type="text/Css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .window {
+            /*display: none;*/
+            position: fixed;
+            z-index: 1;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: silver;
+            left: 0;
+        }
+
+        .dragme {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100px;
+            background-color: seagreen;
+        }
+        .close {
+            font: 20px "微软雅黑";
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            color: #333;
+            z-index: 2;
+            background-color: #00a4e4;
+        }
+    </style>
+
+
+
+</head>
+<body>
+<div align="left" class="window" id="box">
+    <div id="moveid" class="dragme"><span class="close" id="close">×</span></div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript" charset="utf-8" src="../jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        document.getElementById('box').onclick = function(){
+            document.getElementById('box').className += ' aaa';
+        }
+    })();
+    var isdrag = false;
+    var tx, x, ty, y;
+    $(function () {
+        document.getElementById("moveid").addEventListener('touchend', function () {
+            isdrag = false;
+        });
+        document.getElementById("moveid").addEventListener('touchstart', selectmouse);
+        document.getElementById("moveid").addEventListener('touchmove', movemouse);
+
+
+        document.getElementById("close").addEventListener('touchend', clickClose);
+        function clickClose(event){
+            var e = event || window.event;
+            e.preventDefault();
+            console.log(123);
+            $('.window').hide();
+        }
+
+    });
+
+    function movemouse(event) {
+        var e = event || window.event;
+        e.preventDefault();
+        if (isdrag) {
+            var $w = $('.window').get(0).offsetWidth;
+            var w = $('#moveid').get(0).offsetWidth;
+            var $h = $('.window').get(0).offsetHeight;
+            var h = $('#moveid').get(0).offsetHeight;
+            var n = tx + e.touches[0].pageX - x;
+            var m = ty + e.touches[0].pageY - y;
+            if (n < 0) {
+                n = 0;
+            } else if (n > $w - w) {
+                n = $w - w
+            }
+            if (m < 0) {
+                m = 0;
+            } else if (m > $h - h) {
+                m = $h - h
+            }
+            $("#moveid").css({"left": n + 'px', "top": m + 'px'});
+            return false;
+        }
+    }
+
+    function selectmouse(event) {
+        var e = event || window.event;
+        e.preventDefault();
+        isdrag = true;
+        tx = parseInt(document.getElementById("moveid").style.left + 0);
+        ty = parseInt(document.getElementById("moveid").style.top + 0);
+        x = e.touches[0].pageX;
+        y = e.touches[0].pageY;
+        return false;
+    }
+
+
+//    (function(){
+//        var touchFunc = function(obj,type,func) {
+//            //滑动范围在5x5内则做点击处理，s是开始，e是结束
+//            var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
+//            var sTime = 0, eTime = 0;
+//            type = type.toLowerCase();
+//
+//
+//            obj.addEventListener("touchstart",function(){
+//                sTime = new Date().getTime();
+//                init.sx = event.targetTouches[0].pageX;
+//                init.sy = event.targetTouches[0].pageY;
+//                init.ex = init.sx;
+//                init.ey = init.sy;
+//                if(type.indexOf("start") != -1) func();
+//            }, false);
+//
+//            obj.addEventListener("touchmove",function() {
+//                event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动
+//                init.ex = event.targetTouches[0].pageX;
+//                init.ey = event.targetTouches[0].pageY;
+//                if(type.indexOf("move")!=-1) func();
+//            }, false);
+//
+//            obj.addEventListener("touchend",function() {
+//                var changeX = init.sx - init.ex;
+//                var changeY = init.sy - init.ey;
+//                if(Math.abs(changeX)>Math.abs(changeY)&&Math.abs(changeY)>init.y) {
+//                    //左右事件
+//                    if(changeX > 0) {
+//                        if(type.indexOf("left")!=-1) func();
+//                    }else{
+//                        if(type.indexOf("right")!=-1) func();
+//
+//                    }
+//                }
+//                else if(Math.abs(changeY)>Math.abs(changeX)&&Math.abs(changeX)>init.x){
+//                    //上下事件
+//                    if(changeY > 0) {
+//                        if(type.indexOf("top")!=-1) func();
+//                    }else{
+//                        if(type.indexOf("down")!=-1) func();
+//                    }
+//                }
+//
+//                else if(Math.abs(changeX)<init.x && Math.abs(changeY)<init.y){
+//                    eTime = new Date().getTime();
+//                    //点击事件，此处根据时间差细分下
+//                    if((eTime - sTime) > 300) {
+//                        if(type.indexOf("long")!=-1) func(); //长按
+//                    }
+//                    else {
+//                        if(type.indexOf("click")!=-1) func(); //当点击处理
+//                    }
+//                }
+//                if(type.indexOf("end")!=-1) func();
+//            }, false);
+//        };
+
+//    })();
+
+</script>

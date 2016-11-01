@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="点我开始计算" onclick="p()">
+</body>
+</html>
+<script>
+    //jisuan.js
+    function p(){
+        /*输入两个数，再输入一个运算符，得到结果*/
+        var num1 = window.prompt("请输入第一个数");
+        num1=parseFloat(num1);
+        var num2 = window.prompt("请输入第二个数");
+        num2=parseFloat(num2);
+        var oper = window.prompt("请输入运算符");
+        var res = 0;
+        switch(oper)
+        {
+            case "+":
+                res = num1 + num2;
+                document.write(num1+oper+num2+"="+res);
+                break;
+            case "-":
+                res = num1 - num2;
+                document.write(num1+oper+num2+"="+res);
+                break;
+            case "*":
+                res = num1 * num2;
+                document.write(num1+oper+num2+"="+res);
+                break;
+            case "/":
+                res = num1 / num2;
+                document.write(num1+oper+num2+"="+res);
+                break;
+                defult:document.write("输入错误");
+        }
+
+
+    }
+</script>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>放烟花</title>
+
+    <style>
+
+        div{
+
+            position: absolute;
+
+        }
+
+        body{
+
+            background: #000;
+
+            overflow: hidden;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+</body>
+
+<script type="text/javascript">
+
+    firework();
+
+    function firework(){
+
+        document.onclick=function(event){
+
+            var oevent=event||window.event;
+
+//alert(oevent);
+
+            var oreddiv = document.createElement("div");
+
+            oreddiv.style.background="red";
+
+            oreddiv.style.width="8px";
+
+            oreddiv.style.height="8px";
+
+            oreddiv.style.borderRadius="50%";
+
+            oreddiv.style.left=oevent.clientX+"px";
+
+            oreddiv.style.top=document.documentElement.clientHeight+"px";
+
+            document.body.appendChild(oreddiv);
+
+            var t = oevent.clientY;
+
+            var l = oevent.clientX;
+
+            var timer = setInterval(function(){
+
+                oreddiv.style.top = oreddiv.offsetTop-20+"px";
+
+                if(oreddiv.offsetTop<=t){
+
+                    clearInterval(timer);
+
+                    document.body.removeChild(oreddiv);
+
+                    var adiv=[];
+
+                    for(var i=0;i<50;i++){
+
+//每遍历一次，就生成一个div
+
+                        odiv=document.createElement("div");
+
+                        odiv.style.width="2px";
+
+                        odiv.style.height="2px";
+
+                        odiv.style.borderradius="50%";
+
+                        odiv.style.background="#"+fillzero();
+
+                        odiv.style.left=l+"px";
+
+                        odiv.style.top=t+"px";
+
+                        document.body.appendChild(odiv);
+
+                        adiv.push(odiv);
+
+                        odiv.speedX=Math.random()*40-20;
+
+                        odiv.speedY=Math.random()*40-20;
+
+                    }
+
+                    var newtimer=setInterval(function(){
+
+                        for(var i=0;i<adiv.length;i++){
+
+                            if(!adiv[i]){
+                                continue;
+                            }
+
+                            adiv[i].style.left=adiv[i].offsetLeft+adiv[i].speedX+"px";
+
+                            adiv[i].style.top=adiv[i].offsetTop+adiv[i].speedY+"px";
+
+                            adiv[i].speedY++;
+
+                            if(adiv[i].offsetLeft<0||adiv.offsetLeft>document.documentElement.clientWidth||adiv[i].offsetTop>document.documentElement.clientHeight){
+
+                                document.body.removeChild(adiv[i]);
+
+                                adiv[i] =null;
+
+                            }
+
+                        }
+
+                    },30)
+
+                }
+
+            },30);
+
+        };
+
+        function fillzero(){
+
+            var strNum=Math.ceil(Math.random()*0xffffff).toString(16);
+
+            if(strNum.length<6){
+
+                strNum="0"+strNum;
+
+            }
+
+            return strNum;
+
+        }
+
+    }
+
+</script>
+
+</html>

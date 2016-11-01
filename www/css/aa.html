@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0 ;
+            padding: 0;
+
+        }
+        .box {
+            width: 39px;
+            height: 200px;
+            margin: 50px ;
+            position: relative;
+            background: url('images/zhuTit_03.jpg') no-repeat left top,
+                        url("images/zhuBg_03.png") repeat-y;
+            border-radius: 0 0 10px 10px ;
+            overflow: hidden;
+            /*background:-webkit-linear-gradient(left, #efa32c, rgba(0, 0, 255, 0.5));*/
+            /*background:linear-gradient(left, #efa32c, rgba(0, 0, 255, 0.5));*/
+            /*background:-webkit-gradient(linear, 0 0, 0 right, from(#efa32c), to(rgba(0, 0, 255, 0.5)));*/
+            /*background: gradient(linear, 0 0, 0 right, from(#efa32c), to(rgba(0, 0, 255, 0.5)));*/
+
+            /*background: -moz-linear-gradient(left, #fdb841 0%, rgba(255,231,126,.6) 45%, #fff4bf 50%,rgba(255,231,126,.6) 60%, #fdb841 100%);*/
+            /*!*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#ffffff));*!*/
+            /*background: -webkit-linear-gradient(left, #fdb841 0%, rgba(255,231,126,.6) 45%, #fff4bf 50%, rgba(255,231,126,.6) 60%,#fdb841 100%);*/
+            /*background: -o-linear-gradient(left, #fdb841 0%, rgba(255,231,126,.6) 45%, #fff4bf 50%,rgba(255,231,126,.6) 60%, #fdb841 100%);*/
+            /*background: -ms-linear-gradient(left, #fdb841 0%, rgba(255,231,126,.6) 45%, #fff4bf 50%,rgba(255,231,126,.6) 60%, #fdb841 100%);*/
+            /*background: linear-gradient(to right, #fdb841 0%, rgba(255,231,126,.6) 45%, #fff4bf 50%,rgba(255,231,126,.6) 60%, #fdb841 100%);*/
+        }
+        .child {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+            background: url('images/zhuT_03.jpg') no-repeat left top,
+                        url("images/zhuBody_06.png") repeat-y;
+
+            /*background: -moz-linear-gradient(left, #f54400 0%, rgba(253,128,12,.8) 45%, #ffd756 50%,rgba(253,128,12,.8) 60%, rgba(249,128,4,.8) 100%);*/
+            /*!*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#ffffff));*!*/
+            /*background: -webkit-linear-gradient(left, #f54400 0%, rgba(255,231,126,.6) 45%, #ffd756 50%, rgba(253,128,12,.8) 60%,rgba(249,128,4,.8) 100%);*/
+            /*background: -o-linear-gradient(left, #f54400 0%, rgba(255,231,126,.6) 45%, #ffd756 50%,rgba(253,128,12,.8) 60%, rgba(249,128,4,.8) 100%);*/
+            /*background: -ms-linear-gradient(left, #f54400 0%, rgba(255,231,126,.6) 45%, #ffd756 50%,rgba(253,128,12,.8) 60%, rgba(249,128,4,.8) 100%);*/
+            /*background: linear-gradient(to right, #f54400 0%, rgba(255,231,126,.6) 45%, #ffd756 50%,rgba(253,128,12,.8) 60%, rgba(249,128,4,.8) 100%);*/
+        }
+
+
+
+
+
+
+
+
+        body,
+        div,
+        ul,
+        li,
+        ol,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        input,
+        textarea,
+        select,
+        p,
+        dl,
+        dt,
+        dd,
+        a,
+        img,
+        button,
+        form,
+        table,
+        th,
+        tr,
+        td,
+        tbody,
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section,
+        s {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+        em,
+        i {
+            font-style: normal;
+        }
+        strong {
+            font-weight: normal;
+        }
+        .clearfix:after {
+            content: "";
+            display: block;
+            visibility: hidden;
+            height: 0;
+            clear: both;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        ul,
+        ol {
+            list-style-type: none;
+        }
+        select,
+        input,
+        img,
+        select {
+            vertical-align: middle;
+        }
+        input {
+            font-size: 2rem;
+            outline: none;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            outline: none;
+            border: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .clear {
+            clear: both;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        html {
+            font-size: 62.5%;
+        }
+        /*====start============*/
+        .container,header {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            padding: 4.6rem 1rem 0;
+            box-sizing: border-box;
+        }
+        .discipleLeft {
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .people,.total {
+            float: left;
+        }
+        header label {
+            width: 13.2rem;
+            height: 15.2rem;
+            display: inline-block;
+            position: relative;
+            background: url("../images/zigong_03.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .introduce {
+            color: #7e0204;
+            font-size: 1.6rem;
+            display: block;
+            margin: .8rem 0;
+        }
+        label .radio {
+            visibility: hidden;
+        }
+        label .radio,.radioImg {
+            position: absolute;
+            top: 19rem;
+            left: 5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        label .radioImg::before {
+            content: "";
+            width: 2.5rem;
+            height: 2.5rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url("../images/checkedf_10.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        label span.act::before {
+            background-image: url("../images/checked_10.png");
+        }
+        .introduce {
+            display: block;
+            text-align: center;
+        }
+        .total {
+            margin: 13rem 0 0;
+        }
+        .total p {
+            color: #7e0204;
+            font-size: 1.6rem;
+            margin: .5rem 0 0 -.5rem;
+            font-family: "微软雅黑";
+        }
+        .zhu {
+            width: 2.6rem;
+            height: 10.7rem;
+        }
+        .box {
+            position: relative;
+            background: url('../images/zhuTit_03.jpg') no-repeat left top,
+            url("../images/zhuBg_03.png") repeat-y left bottom;
+            border-radius: 0 0 .5rem .5rem;
+            overflow: hidden;
+        }
+        .child {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+            background: url('../images/zhuT_06.jpg') no-repeat left top,
+            url("../images/zhuBody_08.png") repeat-y left center;
+        }
+        .discipleRight {
+            float: right;
+        }
+        .discipleRight label {
+            width: 14.1rem;
+            height: 15.2rem;
+            background-image: url("../images/yanhui_05.png");
+        }
+
+        .discipleRight label .radioImg,.discipleRight label .radio {
+            left: 6.2rem;
+        }
+        .discipleRight .total {
+            right: 1rem;
+            left: 0;
+        }
+        .lunbo {
+            width: 100%;
+            text-align: center;
+            font-size: 2.4rem;
+            font-family: "微软雅黑";
+            height: 10rem;
+            overflow: hidden;
+            padding: 1rem 0;
+            position: relative;
+        }
+        .lunbo ul {
+            padding-top: 1rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 1.8;
+            text-align: center;
+            width: 100%;
+        }
+        /*==========body============*/
+        @font-face {
+            /* font-properties */
+            font-family: fangzheng;
+            src:url('../fangzheng.ttf'),
+            url('../fangzheng.woff'),
+            url('../fangzheng.eot');
+        ;
+        }
+        .paddingBody {
+            padding: 0 1rem;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .body {
+            width: 100%;
+            overflow: hidden;
+            /*height: 128rem;*/
+            border-top: 2rem solid #6c5b43;
+            border-right: 1.8rem solid #6c5b43;
+            border-bottom: 2rem solid #6c5b43;
+            border-left: 1.8rem solid #6c5b43;
+            box-sizing: border-box;
+        }
+        .border {
+            border: .4rem solid #4b3e2c;
+            border-radius: .6rem;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            left: -.4rem;
+            /*top: -.4rem;*/
+            z-index: 5;
+        }
+        .border>div {
+            padding: .3rem;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .bodyWrap {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: .3rem;
+            padding: 1rem;
+            color: #3e3e3e;
+            font-size: 2.8rem;
+            line-height: 1.5;
+            font-family: fangzheng;
+            border: .2rem solid #959186;
+        }
+        h1 {
+            font-size: 3.4rem;
+            text-align: center;
+            padding: 1rem 0 1.5rem;
+        }
+        .bodyWrap input {
+            width: 18rem;
+            font-size: 2.4rem;
+            text-align: center;
+            font-family: fangzheng;
+            margin-bottom: .5rem;
+            border-bottom: 1px dashed #3e3e3e;
+        }
+        .bodyWrap label {
+            position: relative;
+            padding:0 3rem;
+        }
+        .bodyWrap .radio {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        .bodyWrap label .radio,.bodyWrap .radioImg {
+            left: 0;
+            top: .2rem;
+        }
+        .bodyWrap li {
+            margin-top: 2rem;
+        }
+        .bodyWrap li:first-child {
+            margin-top: 0;
+        }
+        footer {
+            font-family: "微软雅黑";
+            width: 100%;
+            font-size: 2.4rem;
+            color: #3e3e3e;
+            overflow: hidden;
+            line-height: 1.8;
+            padding:0 1rem 30px;
+            box-sizing: border-box;
+        }
+        footer dt {
+            margin-top: 2rem;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>canvas 刮奖</title>
+    <meta name="keywords" content="canvas 刮奖" />
+    <meta name="description" content="canvas">
+    <link rel="stylesheet" type="text/css" href="act08.css" />
+    <script type="text/javascript" src="../act06/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+    <script type="text/javascript"  src="act08.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="banner"></div>
+        <div class="wrap">
+            <div id="gua1">
+                <img id="gua1_img" src="images/gua_image.png" >
+                <h2 id="prizeTxt">100M流量充值卡</h2>
+                <canvas id="front"></canvas>
+            </div>
+            <div class="tab">
+                <ul id="ulTab" class="ulTab">
+                    <li id='ruleLi' class="rule">游戏规则</li>
+                    <li id='recordLi' class="record">中奖纪录</li>
+                </ul>
+                <div class="divTab" id="rule">
+                    <dl>
+                        <dt>活动时间</dt>
+                        <dd>
+                            <span id='startTime'>6月1日</span> 至 <span id='endTime'>6月5日</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>活动细则</dt>
+                        <dd>
+                            <ul>
+                                <li id='ruleTtl'></li>
+                                <li id='ruleCon'></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="divTab prizeRecord" id="record">
+                    <ul id="scrollUl">
+                        <li>还没有登录，暂时无法查看记录</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul.timeline {
+            list-style-type: none;
+            background: url("../res/img/version_line.png") repeat-y scroll 120px 0 transparent;
+            margin: 50px 0;
+            padding: 0;
+        }
+        ul.timeline li {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        ul.timeline li .number {
+            position: absolute;
+            background: url("../res/img/version_dot.png") no-repeat scroll 0 0 transparent;
+            width: 56px;
+            height: 56px;
+            left: 97px;
+            line-height: 56px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="timeline">
+        <li>
+            <div class="time">时间</div>
+            <div class="version">版本号</div>
+            <div class="number">第几个版本</div>
+            <div class="content">
+                <pre>
+                    更新记录
+                </pre>
+            </div>
+      </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css-nav</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            ;list-style: none;
+        }
+        /*  四边形导航
+        .keith li {*/
+            /*position: relative;*/
+            /*float: left;*/
+            /*padding: 10px 20px;*/
+            /*margin-left: 5px;*/
+
+
+        /*}*/
+        /*.keith li::after {*/
+            /*content: '';*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*bottom: 0;*/
+            /*top: 0;*/
+            /*z-index: -1;*/
+            /*border-radius: 3px;*/
+            /*background: #2175BC;*/
+            /*-moz-transform: skewX(-25deg);*/
+            /*-ms-transform: skewX(-25deg);*/
+            /*-webkit-transform: skewX(-25deg);*/
+            /*transform: skewX(-25deg);*/
+        /*}*/
+        /*.keith li:hover::after {*/
+            /*background: #2586D7;*/
+        /*}
+        */
+
+        /*
+            *梯形导航
+        */
+        .keith li {
+            position: relative;
+            float: left;
+            padding: 10px 15px;
+
+        }
+        .keith li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: #2175BC;
+            -moz-transform: perspective(0.5em) rotateX(5deg);
+            -ms-transform: perspective(0.5em) rotateX(5deg);
+            -webkit-transform: perspective(0.5em) rotateX(5deg);
+            transform: perspective(0.5em) rotateX(5deg);
+            -moz-transform-origin: bottom;
+            -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+        }
+        .keith li:hover::after {
+            background: #3B9BE5;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul  class="keith">
+        <li>博客园</li>
+        <li>首页</li>
+        <li>新随笔</li>
+        <li>联系</li>
+        <li>订阅</li>
+        <li>管理</li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    $('.keith li').click(function(event) {
+        $('.keith li').removeClass('zIndex');
+        $(this).addClass('zIndex');
+    });
+</script>

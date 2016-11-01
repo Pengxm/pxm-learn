@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d轮播</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li class="no1">
+                <span class="mianA"></span>
+                <span class="mianB"></span>
+                <span class="mianC"></span>
+                <span class="mianD"></span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="jquery-1.11.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('ul').append($('.no1').clone().addClass('no2').removeClass('no1'))
+                .append($('.no1').clone().addClass('no3').removeClass('no1'))
+                .append($('.no1').clone().addClass('no4').removeClass('no1'))
+                .append($('.no1').clone().addClass('no5').removeClass('no1'));
+        $('ul li:nth-child(2) .mianA,li:nth-child(2) .mianB,li:nth-child(2) .mianC,li:nth-child(2) .mianD').css({'backgroundPosition' : '-158px 0'});
+
+        $('ul li:nth-child(3) .mianA,li:nth-child(3) .mianB,li:nth-child(3) .mianC,li:nth-child(3) .mianD').css({'backgroundPosition' : '-316px 0'});
+
+        $('ul li:nth-child(4) .mianA,li:nth-child(4) .mianB,li:nth-child(4) .mianC,li:nth-child(4) .mianD').css({'backgroundPosition' : '-474px 0'});
+
+        $('ul li:nth-child(5) .mianA,li:nth-child(5) .mianB,li:nth-child(5) .mianC,li:nth-child(5) .mianD').css({'backgroundPosition' : '-632px 0'});
+        var a = 0;
+        setInterval(function(){
+            a++;
+            $("li").css("-webkit-transform","rotateX(" + -90*a +"deg)");
+        }, 5000);
+//				$("input").click(
+//					function(){
+//						a++;
+//						$("li").css("-webkit-transform","rotateX(" + -90*a +"deg)");
+//					}
+//				);
+    }
+    );
+</script>

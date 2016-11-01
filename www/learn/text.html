@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        ul {
+            text-align: center;
+            display: flex;
+        }
+        li {
+            width: 300px;
+            margin: 0 15px;
+        }
+        h2 {
+            font: 16px/1.5 "微软雅黑";
+            color: #fff;
+            padding: 10px 0;
+            background-color: orange;
+        }
+        .con {
+            width: 100%;
+            height: 200px;
+            border: 1px solid orange;
+            border-top: none;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .scrollView {
+            padding: 1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div class="box">
+    <ul>
+        <li>
+            <h2>项目介绍</h2>
+            <div class="scrollWrap con" id="scrollWrap">
+                <p class="scrollView" id="scrollView" style="text-indent: 2em;">项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容v项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容项目内容
+
+                </p>
+
+            </div>
+        </li>
+        <li>
+            <h2>融资用途</h2>
+            <div class="con">
+                <p>项目内容</p>
+            </div>
+        </li>
+        <li>
+            <h2>退出机制</h2>
+            <div class="con">
+                <p>项目内容</p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    (function(){
+        function Scroller(container, scroller, speed){
+            this.container=container;
+            this.scroller=scroller;
+            this.speed=speed;
+        }
+        Scroller.prototype.initSize = function(){
+            this.container.height = this.container.clientHeight;
+            this.scroller.height = this.scroller.offsetHeight;
+            this.maxScroll = this.scroller.height - this.container.height > 0 ? this.scroller.height-this.container.height:0;
+            this.animationTime = this.maxScroll/this.speed*1000;
+            this.currentScrollTop = 0;
+        };
+        Scroller.prototype.start = function() {
+            var _this=this;
+            _this.initSize();
+            var timer = null;
+            if(_this.maxScroll){
+                function interval(){
+                    if(_this.currentScrollTop >= _this.maxScroll){
+                        _this.currentScrollTop = 0;
+                    }
+                    _this.scroller.style.transform = "translate(0px,-"+_this.currentScrollTop+"px)";
+                    _this.currentScrollTop += _this.speed;
+                }
+                clearInterval(timer);
+                timer = window.setInterval( interval, 50);
+                _this.container.onmouseover = function(){
+                    clearInterval(timer);
+                };
+                _this.container.onmouseout = function(){
+                    timer = window.setInterval( interval, 50);
+                }
+            }
+        };
+        window.Scroller = Scroller;
+        document.addEventListener("DOMContentLoaded",function(){
+            var scrollWrap = document.getElementById('scrollWrap');
+            var scrollView = document.getElementById('scrollView');
+            var scroller = new Scroller(scrollWrap, scrollView, 1);
+            scroller.start();
+        });
+    })()
+</script>

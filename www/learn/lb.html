@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .container {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto 0;
+            border: 2px solid #ccc;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        #box {
+            width: 1800px;
+            height: 300px;
+            border: 2px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+
+        }
+        li {
+            float: left;
+            overflow: hidden;
+            width: 588px;
+            text-align: center;
+            background-color: #eee;
+            font: 50px/300px Arial;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul id="box">
+        <li>1111111</li>
+        <li>1222222</li>
+        <li>1333333</li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script>
+    var oUl = document.getElementById('box');
+    var timer = null;
+    var n = 0;
+    timer = setInterval(function(){
+        n += 100;
+        if (n > 1200) {
+            n = 0;
+        }
+        oUl.style.left = -n + 'px';
+    }, 2000);
+
+
+
+
+</script>

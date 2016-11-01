@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .accordion{
+            background:#f40;
+            height:400px;
+        }
+        .accordion .div{
+            float:left;
+            width:100%;
+        }
+        .accordion .title{
+            background:seagreen;
+            height: 20px;
+            line-height:20px;
+            cursor:pointer;
+        }
+        .accordion .content{
+            transition:height 1s;
+            height:0;
+            background:silver;
+            overflow:auto;
+        }
+        .accordion .content.full{
+            height:320px;
+        }
+        .accordion:after{
+            clear:both;
+            content:"";
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+    <!-- <div class="accordion">
+        <div class="div">
+            <div class="title">title</div>
+            <div class="content">content</div>
+        </div>
+        <div class="div">
+            <div class="title">title</div>
+            <div class="content">content</div>
+        </div>
+        <div class="div">
+            <div class="title">title</div>
+            <div class="content full">content</div>
+        </div>
+        <div class="div">
+            <div class="title">title</div>
+            <div class="content">content</div>
+        </div>
+    </div> -->
+</div>
+<script type="text/babel">
+    var AccordionDivComponent = React.createClass({
+        render : function() {
+            return (
+                    <div className="div">
+                        <div className="title" onClick={this.props.clk}>title</div>
+                        <div className={"content "+(this.props.active ? "full" : "")} >content</div>
+                    </div>
+            );
+        }
+    });
+    var Accordion = React.createClass({
+        getInitialState : function() {
+            return {
+                index : 0
+            }
+        },
+        handlClick : function(index , ev) {
+            this.setState({
+                index : index
+            })
+        },
+        render : function() {
+            return (<div className="accordion">
+                {this.props.data.map((el, index)=> {
+                    return (<AccordionDivComponent  active={this.state.index == index} clk={this.handlClick.bind(null,index)} key={index} />)
+                })}
+            </div>);
+        }
+    });
+    var arr = [
+        {
+            title : "title",
+            content : "content"
+        },
+        {
+            title : "title1",
+            content : "content1"
+        },
+        {
+            title : "title2",
+            content : "content2"
+        },
+        {
+            title : "title2",
+            content : "content2"
+        }
+    ];
+    //console.time();
+    ReactDOM.render(
+            <Accordion data={arr}/>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        .process-bar{
+            border:1px solid #ccc;
+            height:20px;
+            border-radius:4px;
+        }
+        .process{
+            height:20px;
+            line-height:20px;
+            text-align:center;
+            background:#a1b2c3;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+    <!-- <div class="process-bar">
+        <div class="process">
+            50%
+        </div>
+    </div> -->
+</div>
+<script type="text/babel">
+    var ProcessBar = React.createClass({
+        render : function() {
+            var width = parseInt(this.props.percent)+"%";
+            return (
+                    <div className="process-bar">
+                        <div className="process" style={{width:width}}>
+                            {this.props.percent}%
+                        </div>
+                    </div>)
+        }
+    });
+    //直接渲染组件
+    //ReactDOM.render(<ProcessBar percent="40" />, document.getElementById("example"));
+    //启动一个组件和定时器， 每一百毫秒重新渲染组件；
+    var per = 0;
+    setInterval(function() {
+        per++;
+        if(per>=101)per=0;
+        ReactDOM.render(<ProcessBar percent={per} />, document.getElementById("example"));
+    },100)
+</script>
+</body>
+</html>

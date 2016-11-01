@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reactState</title>
+    <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react.min.js"></script>
+    <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react-dom.min.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+</html>
+<script type="text/babel">
+    console.log(window.innerWidth);
+/*    var LikeButton = React.createClass({
+        getInitialState: function() {
+            return {liked: false};
+        },
+        handleClick: function(event) {
+            this.setState({liked: !this.state.liked});
+        },
+        render: function() {
+            var text = this.state.liked ? '喜欢' : '不喜欢';
+            return (
+                    <p onClick={this.handleClick}>
+                        你<b>{text}</b>我。点我切换状态。
+                    </p>
+            );
+        }
+    });
+
+    React.render(
+            <LikeButton />,
+            document.getElementById('example')
+    );*/
+
+    var LikeButton = React.createClass({
+        getInitialState : function(){
+            return {liked : true}
+        },
+        handleClick : function(event){
+            this.setState({liked : !this.state.liked})
+        },
+        render : function(){
+            var text = this.state.liked ? '喜欢' : '不喜欢';
+            return (
+                    <p onClick={this.handleClick}>
+                        你<b>{text}</b>我。点我切换状态。
+                    </p>
+            )
+        }
+    });
+    React.render(
+            <LikeButton />,
+            document.getElementById('example')
+    )
+</script>

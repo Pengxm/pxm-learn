@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*思路
+     26个字母的unicode码在65(A)与90(Z)之间,第13位M(77);
+     将str通过.charCodeAt()转为unicode编码并放入新数组;
+     其中非字母形式的字符直接放入.charAt();
+     后13位字母减去13后放入；
+     前13位字母加上13后放入；
+     通过.fromCharCode()转化为字母，将数组转化为字符串；
+     */
+
+
+    function rot13(str) {
+        var newarr=[];
+        for(var i=0;i<str.length;i++){
+            if(str.charCodeAt(i)<65||str.charCodeAt(i)>90){
+                newarr.push(str.charAt(i));
+            }else if(str.charCodeAt(i)>77){
+                newarr.push(String.fromCharCode(str.charCodeAt(i)-13));
+            }else{
+                newarr.push(String.fromCharCode(str.charCodeAt(i)+13));
+            }
+        }
+        return newarr.join("");
+    }
+
+
+
+    // Change the inputs below to test
+    console.log(rot13("SERR PBQR PNZC"));
+
+
+
+//    var arr=["a","b","c","d"];
+//    function changestr(){
+//        var newArry=[];
+//        var temp=[];//新创建的两个数组
+//        for(var p in arr){
+//            temp[p]=arr[p];//将原本数组中的值复制给重新定义的数组
+//        }
+//        for(var i=0;i<arr.length;i++){
+//            var random=Math.round(Math.random()*(temp.length-1));//产生0~temp数组长度-1的值
+//            newArry[i]=temp[random];//将temp数组中随机出来的数组值赋给新数组
+//            temp.splice(random,1);//删除赋给新数组的值，temp数组的长度减一，直到temp中没有值为止
+//        }
+//        return newArry
+//    }
+//    document.write(Arry=changestr());
+
+
+    function randomsort(a, b) {
+        return Math.random()>.5 ? -1 : 1;//用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+    }
+    var arr = ["a","b","c","d"];
+    arr.sort(randomsort);
+    document.write(arr);
+
+</script>

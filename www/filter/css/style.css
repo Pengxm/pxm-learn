@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight:normal;
+}
+input,textarea,select{
+    outline:none;
+}
+textarea{
+    resize:none;
+}
+img{
+    border:none;
+}
+em{
+    font-style: normal;
+}
+html{
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+}
+/*设置根font-size:20px,设计图是375宽度设计，所以height,width,margin,padding计算的时候用数值+‘px’/40,得到rem转换*/
+/* /40是因为设计图是手机屏幕的二倍，本设计图基于iPhone6*/
+body{
+    font-size: .6rem;
+    font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    color:#666;
+    min-height: 100%;
+
+}
+header{
+    height: 2rem;/*80px /40*/
+    background-color:#c21e25;
+}
+#filter{
+    height: 2.25rem;/*90px /40*/
+    border-bottom: 1px solid  #dedede;;
+    background-color:#fff;
+}
+#hot-product{
+    height: 5rem;/*200 /40*/
+    padding:0 .5rem;
+    border-bottom: 1px solid #dedede;
+   /* background-color: #eee;*/
+}
+#hot-product h2{
+    font-size:.45rem ;/*18px /40*/
+    height: 1rem;/*40px /20*/
+    line-height: 1rem;
+   /* background-color: antiquewhite;*/
+}
+.hot-product-list{
+    height:4rem;/*80px /20*/
+    /*background-color: aliceblue;*/
+
+}
+.hot-product-list li{
+    width:25%;
+    margin-top: .5rem;
+    float: left;
+    text-align: center;
+}
+.hot-product-list img{
+    height: 3.25rem;
+}
+.all-product{
+    height: 100%;
+    margin:0 auto;
+}
+#all-product h2{
+    font-size: .45rem;
+    height: 1.5rem;/* 60px /20 */
+    line-height: 1.5rem;
+    padding-left: .5rem;
+    border-bottom: 1px solid #dedede;
+}
+.all-product-list{
+    list-style:none;
+    overflow-x: hidden;
+    overflow: hidden;
+}
+.all-product-list li{
+    width: 100%;
+    height: 4rem;/*150px /20*/
+    /*background-color: aquamarine;*/
+    border-bottom: 1px solid #dedede;
+    padding:.5rem;
+}
+.all-product-img{
+    float: left;
+}
+.all-product-img img{
+    height: 4rem;/*120px /20*/
+}
+.all-product-info{
+    height: 100%;
+    width: 12rem;
+    float: left;
+    margin-left: .5rem;
+    background: #666;
+}
+.all-product-info-name{
+    height: 2rem;
+    width: 100%;
+    font-size: .75rem;
+    line-height: 1rem;
+    color: #000;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    background-color: #1fc195;
+}
+.all-product-info-name span{
+    display: inline;
+    word-break: break-all;
+
+}
+.all-product-info-price{
+    height: 1rem;
+}
+footer{
+    position:absolute;
+    bottom: 0;
+    height:3rem;
+    background-color: #000;
+}

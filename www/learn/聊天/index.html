@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul {
+            width: 500px;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            margin: 0 auto;
+        }
+        ul li {
+            width: 100%;
+            overflow: hidden;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="left">1111</li>
+            <li class="right">nihao</li>
+        </ul>
+        <textarea id="text_txt1"></textarea>
+        <span id ="num_txt1">剩余可输入10字</span>
+    </div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    $(function(){
+        $('#text_txt1').on('keyup',function(){
+            var txtval = $('#text_txt1').val().length;
+            console.log(txtval);
+            var str = parseInt(10-txtval);
+            console.log(str);
+            if(str > 0 ){
+                $('#num_txt1').html('剩余可输入'+str+'字');
+            }else{
+                $('#num_txt1').html('剩余可输入0字');
+                $('#text_txt1').val($('#text_txt1').val().substring(0,10)); //这里意思是当里面的文字小于等于0的时候，那么字数不能再增加，只能是600个字
+            }
+            //console.log($('#num_txt').html(str));
+        });
+    })
+</script>

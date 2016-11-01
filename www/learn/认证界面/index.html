@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Examples</title>
+
+    <meta name="description" content="">
+
+    <meta name="keywords" content="">
+
+    <link href="" rel="stylesheet">
+
+</head>
+
+<body>
+
+<form action="" name="form1">
+
+    <table>
+
+        <tr>
+
+            <td>用户名</td>
+
+            <td><input type="text" name="input1" onblur="check1()"/></td><td><div id="div1" style="color:red"></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td>密码</td>
+
+            <td><input type="password" name="input2" onblur="check2()"/></td><td><div id="div2" style="color:red"></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td>再次输入密码</td>
+
+            <td><input type="password" name="input3" onblur="check3()"/></td><td><div id="div3" style="color:red"></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td>请输入邮政编码</td>
+
+            <td><input type="text" name="input4" onblur="check4()"/></td><td><div id="div4" style="color:red"></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td>输入手机号码</td>
+
+            <td><input type="text" name="input5" onblur="check5()"/></td><td><div id="div5" style="color:red"></div></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td> 邮箱地址</td>
+
+            <td><input type="text" name="input6" onblur="check6()"/></td><td><div id="div6" style="color:red"></div></td>
+
+        </tr>
+
+        <tr>
+
+            <td>生日</td><td><input type="text" name="input7" onclick="check7()"/></td><td><div id="div7" style="color:red"></div></td>
+
+        </tr>
+
+        <tr><td><input type="submit" value="完成注册" onclick="sub()"></td></tr>
+
+    </table>
+
+</form>
+
+<script type="text/javascript">
+
+    var p = false;
+
+    function check1() {
+
+        var reg=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+
+        var div1=document.getElementById("div1");
+
+        if(!reg.test(document.form1.input1.value)){
+
+            div1.innerHTML="用户名必须是4-16字母或数字组成且以字母开始";
+
+        }else{
+
+            div1.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+
+
+    function check2() {
+
+        var reg=/[a-zA-Z0-9]{4,10}/;
+
+        var div2=document.getElementById("div2");
+
+        if(!reg.test(document.form1.input2.value)){
+
+            div2.innerHTML="密码只能由英文字母和数字组成，长度为4-10个字符";
+
+        }else{
+
+            div2.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+
+
+    function check3() {
+
+        var div3=document.getElementById("div3");
+
+        if(document.form1.input3.value==0){
+
+            div3.innerHTML="请再次输入密码";
+
+        }else if(document.form1.input3.value!=document.form1.input2.value){
+
+            div3.innerHTML="密码不一致";
+
+        }else {
+
+            div3.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+    function check4() {
+
+        var reg=/^\d{6}$/;
+
+        var div4=document.getElementById("div4");
+
+        if(!reg.test(document.form1.input4.value)){
+
+            div4.innerHTML="邮政编码必须是6个数字";
+
+        }
+
+        else{
+
+            div4.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+
+
+    function check5() {
+
+        var reg=/^1\d{10}$/;
+
+        var div5=document.getElementById("div5");
+
+        if(!reg.test(document.form1.input5.value)){
+
+            div5.innerHTML="手机号必须是11个数字且1开始";
+
+        }else{
+
+            div5.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+
+
+    function check6() {
+
+        var reg=/^[a-zA-Z][a-zA-Z0-9_]+@([a-zA-Z0-9]+.)+(com|cn)$/;
+
+        var div6=document.getElementById("div6");
+
+        if(!reg.test(document.form1.input6.value)){
+
+            div6.innerHTML="邮箱地址不是这种格式";
+
+        }else{
+
+            div6.innerHTML="√";
+
+            return true;
+
+        }
+
+    }
+
+
+
+    function check7() {
+
+        var reg=/^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+
+        var div7=document.getElementById("div7");
+
+        var arr=reg.exec(document.form1.input7.value);
+
+        if(arr==null){
+
+            div7.innerHTML="生日格式为1980-05-12或1988-05-04的形式";
+
+
+
+        }else if (arr[1]<1900||arr[1]>2016) {
+
+            div7.innerHTML="生日必须在1900-2014";
+
+
+
+        }else if (arr[2]<1||arr[2]>12) {
+
+            div7.innerHTML="生日的月份在01~12之间";
+
+
+
+        }else if (arr[3]<1||arr[3]>31) {
+
+            div7.innerHTML="生日的日期必须在01-31之间";
+
+
+
+        }else {
+
+
+
+            div7.innerHTML="√";
+
+            p = true;
+
+        }
+
+    }
+
+    function sub(){
+
+        if(check1()==true&&p==true&& check2()==true&&check3()==true&&check4()==true&&check5()==true&&check6()==true){
+
+
+
+            alert("注册成功");
+
+        }else{
+
+            alert("注册失败，你还有信息没填或不符合格式");
+
+        }
+
+
+
+    }
+
+//    var fn;  //间接传递函数
+//    function foo(){
+//        var a = 2;
+//        function baz(){
+//            console.log(a);  // 2
+//        }
+//        fn = baz;
+//    }
+//    function bar(){ fn();}
+//    foo();
+//    bar();
+
+//    function foo(){
+//        var a = 2;
+//        function  baz(){
+//            console.log(a); // 什么都不输出
+//        }
+//        bar(baz);
+//    }
+//    function bar(fn){ fn(); }
+
+//    var x = 10;
+//    var o = { x : 15};
+//    function f(){
+//         alert(this.x);
+//        }
+//    f();  //10
+//    f.call(o); // 15
+
+//    var x = 10;
+//    var o = {x : 15};
+//    function f(message) {
+//        alert(message);
+//        alert(this.x);
+//    }
+//    f('invoking f');
+//    f.apply(o, ['invoking f through apply']);
+
+//    var a = 'aaa';
+//    function b() {
+//        console.log(a);
+//        var a = 'bbb';
+//        console.log(a);
+//    }
+//    b();
+//    console.log(a);
+
+    var a = {};
+    var b = '我是b1';
+    a.name = 'aaaa';
+    (function(a, b) {
+        a.name = 'bbbb';
+        b='我是b2';
+        a = {};
+        a.name = 'cccc';
+        console.log(a.name);
+        console.log(b);
+    })(a, b);
+    console.log(a.name);
+    console.log(b);
+</script>
+
+</body>
+
+</html>

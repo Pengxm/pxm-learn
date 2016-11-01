@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .child {
+            position: absolute;
+            left: 50px;
+            top: 20px;
+            margin-top: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: silver;
+        }
+        .box {
+            width: 300px;
+            height: 3000px;
+            position: relative;
+            margin: 60px;
+            background-color: seagreen;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    console.log($('.child').get(0).offsetTop);
+    $(document).click(function(event){
+        var e = event || window.event;
+        console.log(e.clientY);
+        console.log(e.pageY);
+    })
+</script>

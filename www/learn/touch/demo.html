@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>touch</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            margin: 50px auto;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400%;
+
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            overflow: hidden;
+            width: 25%;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li>
+                <img src="images/0.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/2.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    (function(){
+        var a = {class: "Animal", name: 'Fido'};
+
+
+
+        console.log(a.class);
+    })();
+
+    (function(){
+        console.log(2 == [[[2]]]);
+        function showCase(value) {
+            switch(value) {
+                case 'A':
+                    console.log('Case A');
+                    break;
+                case 'B':
+                    console.log('Case B');
+                    break;
+                case undefined:
+                    console.log('undefined');
+                    break;
+                default:
+                    console.log('Do not know!');
+            }
+        }
+        showCase(new String('A'));
+        showCase(String('A'));
+    })();
+    $(function(){
+        $('ul').append($('li:first-child').clone());
+
+        function load (){
+
+            document.addEventListener('touchstart',touch, false);
+            document.addEventListener('touchmove',touch, false);
+            document.addEventListener('touchend',touch, false);
+            var left = 0;
+            function touch (event){
+                var event = event || window.event;
+                var $w = $(window).width();
+                var oUl = $('ul');
+                var l = 0;
+                var t = 0;
+                var n = 0;
+                switch(event.type){
+                    case "touchstart":
+                        console.log(1);
+                        l = event.touches[0].clientX;
+                        t = event.touches[0].clientY;
+                        console.log(l + '    ' + t);
+                        break;
+                    case "touchmove":
+                            n ++ ;
+                        event.preventDefault();
+                        left = l - event.touches[0].clientX + n*$w;
+
+//                        var top = event.changedTouches[0].clientY - l;
+                        console.log(n);
+
+                        oUl.css({'left': -left+'px'});
+                            return n;
+                        break;
+                    case "touchend":
+                            console.log(n);
+                        if (left > 50) {
+                            left = $w;
+                        }
+                        oUl.css({'left': -left+'px'});
+                        break;
+                }
+
+            }
+        }
+        window.addEventListener('load',load, false);
+    });
+</script>

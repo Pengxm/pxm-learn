@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lerngit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        li {
+            background-color: seagreen;
+            color: #000;
+            font-size: 16px;
+            line-height: 2;
+        }
+        li:hover {
+            animation: opacity 2s;
+        }
+
+
+        @keyframes opacity {
+            0% { background: rgba(51, 153, 204, 1) }
+            100% { background: rgba(51, 153, 204, .2) }
+        }
+
+
+        @-webkit-keyframes opacity {
+            0% { background: rgba(51, 153, 204, 1) }
+            100% { background: rgba(51, 153, 204, .2) }
+        }
+        @-ms-keyframes opacity {
+            0% { background: rgba(51, 153, 204, 1) }
+            100% { background: rgba(51, 153, 204, .2) }
+        }
+        @-o-keyframes opacity {
+            0% { background: rgba(51, 153, 204, 1) }
+            100% { background: rgba(51, 153, 204, .2) }
+        }
+        @-moz-keyframes opacity {
+            0% { background: rgba(51, 153, 204, 1) }
+            100% { background: rgba(51, 153, 204, .2) }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>index</li>
+            <li>about</li>
+            <li>content</li>
+        </ul>
+    </nav>
+</header>
+<footer>
+    <p>isco 9001 China</p>
+</footer>
+<h2>学习git</h2>
+<p>增加一个p标签<p>
+<div>jdghvsijgiajgi</div>
+<span>hello world</span>
+<p>hello world</p>
+<p>this is a new p</p>
+<ul>
+    <li>
+        <a href="javascript:;">这是一个链接</a>
+        <a>this is a</a>
+    </li>
+    <li>
+        <p>hello world</p>
+    </li>
+    <li>
+        我有一头小毛驴
+    </li>
+    <li>我从来也不骑。。。。</li>
+</ul>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    (function(){
+        console.log($('header').html());
+    })();
+</script>
+
+
+

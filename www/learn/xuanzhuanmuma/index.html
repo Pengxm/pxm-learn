@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>旋转木马</title>
+  <style>
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .slide {
+      width: 1200px;
+      height: 500px;
+      /*background: pink;*/
+      position: relative;
+    }
+    .slide ul li {
+      position: absolute;
+    }
+    .slide ul li img{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .arrow a {
+      position: absolute;
+      text-align: center;
+      line-height: 76px;
+      top: 50%;
+      height: 76px;
+      width: 112px;
+      margin-top: -56px;
+      font-size: 40px;
+      font-weight: bold;
+      z-index: 100;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      display: none;
+    }
+    .arrow a.pre{
+      left: 0;
+    }
+    .arrow a.next{
+      right: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="slide">
+    <ul>
+      <li><img src="1.png" alt=""></li>
+      <li><img src="2.png" alt=""></li>
+      <li><img src="3.png" alt=""></li>
+      <li><img src="4.png" alt=""></li>
+      <li><img src="5.png" alt=""></li>
+    </ul>
+    <div class="arrow">
+      <a href="javascript:;" class="pre"><</a>
+      <a href="javascript:;" class="next">></a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+<script>
+
+  $(function(){
+    /*避免多次点击出现bug，只能在点击后动画完后才能再点击*/
+    var status=true;
+    var timer=null;
+    /*核心,把会变化的值存起来，然后动态循环这些值，然后添加到对应索引值的li标签里*/
+    var json=[{
+      width:400,
+      height:200,
+      top:20,
+      left:50,
+      opacity:0.2,
+      z:2
+    },{
+      width:600,
+      height:300,
+      top:70,
+      left:0,
+      opacity:0.8,
+      z:3
+    },{
+      width:800,
+      height:400,
+      top:0,
+      left:200,
+      opacity:1,
+      z:4
+    },{
+      width:600,
+      height:300,
+      top:70,
+      left:600,
+      opacity:0.8,
+      z:3
+    },{
+      width:400,
+      height:200,
+      top:20,
+      left:800,
+      opacity:0.2,
+      z:2
+    }];
+    move();
+    clearInterval(timer);
+    timer=setInterval(function(){
+      move(true);
+    },2000);
+    $(".slide").hover(function(){
+      /*为什么添加stop()，为了多次触发不断触发BUG，所以每次触发前都
+       *把之前的动画停止掉
+       */
+      $(".arrow a").stop().fadeIn();
+      clearInterval(timer);
+    },function(){
+      $(".arrow a").stop().fadeOut();
+      timer=setInterval(function(){
+        move(true);
+      },2000);
+    });
+    $(".arrow .pre").on("click",function(){
+      if(status){
+        status=false;
+        move(true)
+      }
+    });
+    $(".arrow .next").on("click",function(){
+      if(status){
+        status=false;
+        move(false)
+      }
+    });
+
+    function move(offOn){
+      /*一开始调用时没有传值，但会走动一下，所以要判断没传值时，不走if语句里的内容*/
+      if(offOn!=undefined){
+        if(offOn){
+          /*使用数组删除会返回删除值，而它是删除最后一个，所以就是
+           *返回最后一个值
+           ，然后数组的前追加
+          */
+          json.unshift(json.pop());
+        }else{
+          /*这个同样原理，只是它是数组的后追加，把数组的第一个追加到最后*/
+          json.push(json.shift());
+        }
+      }
+      $.each(json, function(i, v){
+        /*历遍json，添加到对应索引的li标签，使用animate实现动画效果*/
+        $(".slide ul li").eq(i).css("z-index", v.z).stop().animate({"width":v.width,"opacity":v.opacity,"left":v.left,"top":v.top,"height":v.height},500,function(){
+          /*这里就是动画完成后执行的回调函数*/
+          status=true;
+        });
+      })
+    }
+  })
+
+
+
+</script>
+</body>
+</html>

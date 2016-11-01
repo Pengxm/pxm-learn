@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>model</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var b = 5;
+    var sum = (function (a, b){ console.log(b);})(3, 10); //函数自调用
+    // sum  ==> undefined
+
+    (function(){
+
+        var privateStatic = "privatestatic";
+
+        Func = function(){
+            this.setPrivateStatic = function(value){
+                privateStatic = value;
+            };
+            this.getPrivateStatic = function(){
+                return privateStatic;
+            }
+        }
+    })();
+
+    var func1 = new Func();
+    var func2 = new Func();
+    console.log(func1.getPrivateStatic());// privatestatic
+    console.log(func2.getPrivateStatic());// privatestatic
+
+    console.log(func1.setPrivateStatic('changed')); // undefined
+    console.log(func2.getPrivateStatic()); //changed
+
+    function test(c){
+        console.log(c);
+    }
+    test(100);
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react.min.js"></script>
+    <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react-dom.min.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+</html>
+<script type="text/babel">
+    var i = 5;
+    var myStyle = {
+      fontSize: 36,
+      color: 'lightblue'
+    };
+    ReactDOM.render(
+            <div>
+                <h1 style={myStyle}>菜鸟教程</h1>
+                <h2>欢迎学习 React</h2>
+                <h3>{i = 5 ? 1 : 2}</h3>
+                <p data-myattribute = "somevalue">这是一个很不错的 JavaScript 库!</p>
+            </div>
+            ,
+            document.getElementById('example')
+    );
+</script>

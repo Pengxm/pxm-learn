@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS魔方</title>
+    <meta name="author" content="ChenLiang">
+    <meta charset="utf-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0
+        }
+        html{
+            overflow: hidden;
+        }
+        .clearfloat:after{
+            content: '';
+            display: block;
+            clear: both;
+            line-height: 0;
+        }
+        .clearfloat{
+            *zoom: -1;
+        }
+
+
+        .stage{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-perspective: 2500px;
+            background: #333;
+        }
+
+        .magicBox{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transform-style: preserve-3d;
+            /*transform: rotateX(45deg) rotateY(-45deg) rotateZ(0deg);*/
+            /*-webkit-transform: rotateX(45deg) rotateY(-45deg) rotateZ(0deg);*/
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+            -webkit-transform-style: preserve-3d;
+        }
+
+        .frontBox{
+            -webkit-transform: translateZ(100px);
+        }
+        .middleBox{
+            /*-webkit-transform: translateZ(50px);*/
+        }
+        .backBox{
+            -webkit-transform: translateZ(-100px);
+        }
+
+        .cube{
+            width: 100px;
+            height: 100px;
+            float: left;
+            -webkit-transform-style: preserve-3d;
+            /*-webkit-transform: rotateX(45deg) rotateY(-45deg);*/
+        }
+
+        .style{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 2px solid #333;
+        }
+
+        /*前面 沿着Z轴前移150px*/
+        .cube .front{
+            background: #FFFF00;
+            transform: translateZ(50px);
+            -ms-transform: translateZ(50px);
+            -webkit-transform: translateZ(50px);
+        }
+
+        /*后面 沿着Z轴后移150px*/
+        .cube .back{
+            background: #009f41;
+            transform: translateZ(-50px) rotateY(180deg);
+            -ms-transform: translateZ(-50px) rotateY(180deg);
+            -webkit-transform: translateZ(-50px) rotateY(180deg);
+        }
+
+        /*左面 沿着Y轴旋转270度，然后沿着X轴左移一半*/
+        .cube .left{
+            background: #d50010;
+            transform: rotateY(-90deg) translateX(-50%);
+            -ms-transform: rotateY(-90deg) translateX(-50%);
+            -webkit-transform: rotateY(-90deg) translateX(-50%);
+            transform-origin: left;
+        }
+
+        /*右面 沿着Y轴旋转-270度，然后沿着X轴右移一半*/
+        .cube .right{
+            background: #fe8a0a;
+            transform: rotateY(90deg) translateX(50%);
+            -ms-transform: rotateY(90deg) translateX(50%);
+            -webkit-transform: rotateY(90deg) translateX(50%);
+            transform-origin: right;
+        }
+
+        /*上面 沿着X轴旋转-270度，然后沿着Y轴上移一半*/
+        .cube .top{
+            background: #00469f;
+            transform: rotateX(-270deg) translateY(-50%);
+            -ms-transform: rotateX(-270deg) translateY(-50%);
+            -webkit-transform: rotateX(-270deg) translateY(-50%);
+            transform-origin: top;
+        }
+
+        /*下面 沿着X轴旋转270度，然后沿着Y轴下移一半*/
+        .cube .bottom{
+            background: #fff;
+            transform: rotateX(270deg) translateY(50%);
+            -ms-transform: rotateX(270deg) translateY(50%);
+            -webkit-transform: rotateX(270deg) translateY(50%);
+            transform-origin: bottom;
+        }
+
+        .moveFront{
+            animation: frontRotate 5s linear infinite;
+            -webkit-animation: frontRotate 5s linear infinite;
+            -o-animation: frontRotate 5s linear infinite;
+        }
+        .moveMiddle{
+            animation: MiddleRotate 8s linear infinite;
+            -webkit-animation: MiddleRotate 8s linear infinite;
+            -o-animation: MiddleRotate 8s linear infinite;
+        }
+        .moveBack{
+            animation: BackRotate 10s ease infinite;
+            -webkit-animation: BackRotate 10s ease infinite;
+            -o-animation: BackRotate 10s ease infinite;
+        }
+
+        @keyframes frontRotate{
+            from{
+                transform: rotateZ(0deg) translateZ(100px);
+                -webkit-transform: rotateZ(0deg) translateZ(100px);
+                -o-transform: rotateZ(0deg) translateZ(100px);
+                -ms-transform: rotateZ(0deg) translateZ(100px);
+            }
+            to{
+                transform: rotateZ(360deg) translateZ(100px);
+                -webkit-transform: rotateZ(360deg) translateZ(100px);
+                -o-transform: rotateZ(360deg) translateZ(100px);
+                -ms-transform: rotateZ(360deg) translateZ(100px);
+            }
+        }
+        @keyframes MiddleRotate{
+            from{
+                transform: rotateZ(0deg);
+                -webkit-transform: rotateZ(0deg);
+                -o-transform: rotateZ(0deg);
+                -ms-transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+                -webkit-transform: rotateZ(360deg);
+                -o-transform: rotateZ(360deg);
+                -ms-transform: rotateZ(360deg);
+            }
+        }
+        @keyframes BackRotate{
+            0%{
+                transform: rotateZ(0deg) translateZ(-100px);
+                -webkit-transform: rotateZ(0deg) translateZ(-100px);
+                -o-transform: rotateZ(0deg) translateZ(-100px);
+                -ms-transform: rotateZ(0deg) translateZ(-100px);
+            }
+            25%{
+                transform: rotateZ(230deg) translateZ(-100px);
+                -webkit-transform: rotateZ(230deg) translateZ(-100px);
+                -o-transform: rotateZ(230deg) translateZ(-100px);
+                -ms-transform: rotateZ(230deg) translateZ(-100px);
+            }
+            75%{
+                transform: rotateZ(-55deg) translateZ(-100px);
+                -webkit-transform: rotateZ(-55deg) translateZ(-100px);
+                -o-transform: rotateZ(-55deg) translateZ(-100px);
+                -ms-transform: rotateZ(230deg) translateZ(-100px);
+            }
+            100%{
+                transform: rotateZ(0deg) translateZ(-100px);
+                -webkit-transform: rotateZ(0deg) translateZ(-100px);
+                -o-transform: rotateZ(0deg) translateZ(-100px);
+                -ms-transform: rotateZ(0deg) translateZ(-100px);
+            }
+        }
+
+        .btn{
+            text-align: center;
+        }
+        .btn button{
+            width: 120px;
+            height: 50px;
+            background: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 2px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="stage">
+    <div class="magicBox" id='MagicBox'>
+        <div class="box frontBox">
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+        </div>
+        <div class="box middleBox">
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+        </div>
+        <div class="box backBox">
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+            <div class="cube">
+                <div class="front style"></div>
+                <div class="back style"></div>
+                <div class="left style"></div>
+                <div class="right style"></div>
+                <div class="top style"></div>
+                <div class="bottom style"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <button id="go">动起来</button>
+        <button id="stop" style="background: #f00;border-color: #f00">静下来</button>
+    </div>
+
+</div>
+
+</body>
+<script src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $('.magicBox').css({
+        'transform': 'rotateX(45deg) rotateY(-45deg)',
+    });
+
+    var downFlag=false;
+    var mouse={};
+    var deg={};
+    document.onmousedown=function(e){
+        downFlag=true;
+        mouse.downX=e.clientX;
+        mouse.downY=e.clientY;
+        deg.downDegX=parseFloat(document.getElementById('MagicBox').style.webkitTransform.match(/rotateX\((.*?)\)/)[1]);
+        deg.downDegY=parseFloat(document.getElementById('MagicBox').style.webkitTransform.match(/rotateY\((.*?)\)/)[1]);
+    };
+    document.onmouseup=function(){
+        downFlag=false;
+    };
+    document.onmousemove=function(e){
+        mouse.moveX=e.clientX;
+        mouse.moveY=e.clientY;
+        if(downFlag){
+            $('.magicBox').css({
+                '-webkit-transform': 'rotateX('+(deg.downDegX-(mouse.moveY-mouse.downY))+'deg) rotateY('+(deg.downDegY-(mouse.downX-mouse.moveX))+'deg)'
+            })
+        }
+    };
+
+    $('#go').on('click',function(){
+        $('.frontBox').addClass('moveFront');
+        $('.middleBox').addClass('moveMiddle');
+        $('.backBox').addClass('moveBack');
+    });
+    $('#stop').on('click',function(){
+        $('.frontBox').removeClass('moveFront');
+        $('.middleBox').removeClass('moveMiddle');
+        $('.backBox').removeClass('moveBack');
+    });
+
+
+
+
+</script>
+</html>

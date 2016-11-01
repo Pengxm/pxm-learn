@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+</html>
+<script type="text/babel">
+    (function(){
+        /*
+        var animals = ['dog','cat','pig'];
+        ReactDOM.render(
+                <div>
+                    {
+                        animals.map(function(animal,key) {
+                            return <h1 key = {key}>{animal}</h1>
+                        })
+                    }
+                </div>,
+                document.getElementById('example')
+        );
+        */
+/*
+        var Students = React.createClass({
+            render:function() {
+                return (
+                        <ol>
+                            {
+                                React.Children.map(this.props.children, function(child) {
+                                    return <li>{child}</li>
+                                })
+                            }
+                        </ol>
+                );
+            }
+        });
+        ReactDOM.render(
+                <Students>
+                    <span>zhangsan</span>
+                    <span>lisi</span>
+                </Students>,
+                document.getElementById('example')
+        );
+ */
+
+        /*
+        var Student = React.createClass({
+            propTypes: {
+                myName:React.PropTypes.string.isRequired
+            },
+            render:function() {
+                return <h1>
+                    {this.props.myName}
+                </h1>
+            }
+        });
+        var myNameStr = "React";
+        ReactDOM.render(
+                <Student myName = {myNameStr} />,
+                document.getElementById('example')
+        );
+*/
+/*
+        var MyComponment = React.createClass({
+            render:function(){
+                return (
+                        <div>
+                            <input type = "text" ref = "myTextInput"/>
+                            <input type = "button" value = "Focus the text input" onClick={this.handleClick}/>
+                        </div>
+                );
+            },
+            handleClick:function() {
+//                 alert(this.refs.myTextInput);
+                this.refs.myTextInput.focus();
+            }
+        });
+        ReactDOM.render(
+                <MyComponment/>,
+                document.getElementById('example')
+        );
+*/
+        var LinkButton = React.createClass({
+            getInitialState:function () {
+                return {linked:false};
+            },
+            handleClick:function() {
+                this.setState({linked:!this.state.linked});
+            },
+            render:function() {
+                var text = this.state.linked? 'linked':'not linked';
+                return (
+                        <p onClick={this.handleClick}>
+                            You {text} this. Click to toggle
+                        </p>
+                );
+            }
+        });
+        ReactDOM.render(
+                <LinkButton/>,
+                document.getElementById('example')
+        );
+
+    })();
+</script>

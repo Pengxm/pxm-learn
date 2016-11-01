@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    window.onload = function(){
+//        function Gf(){};
+//        Gf.prototype = {
+//            name : 'zs',
+//            age : 23,
+//            sayHello : function(){
+//                alert('hello');
+//            }
+//        };
+//        var gf = new Gf();
+//        gf.name = 'xxx';
+//        console.log(gf.name);
+
+
+//        function Gf(name, age){
+//            this.name = name;
+//            this.age = age;
+//        }
+//        Gf.prototype = {
+//            sayHello : function(){
+//                alert('hello');
+//            }
+//        };
+//
+//        var gf1 = new Gf('zhangsan', 25);
+//        var gf2 = new Gf();
+//        console.log(gf1.sayHello() == gf2.sayHello());  // true
+//        console.log(gf2.name);
+//        console.log(gf2.sayHello());
+//        var cat = {sound: '喵喵喵'};
+//        function Dog(){
+//            this.sound = '汪汪汪';
+//        }
+//        Dog.prototype.bark = function(word){
+//            alert(this.sound+'  '+word);
+//        };
+//        var d = new Dog();
+//        d.bark('小偷');
+//        Dog.prototype.bark.call(cat, 'xiaomiao');
+
+
+//        var Person = function(){};
+//        Person.prototype.sayName = function() {
+//            alert("My Name is Jacky");
+//        };
+//
+//        Person.prototype.age = 27;
+//        var p = new Person();
+//
+//        console.log(p.age);
+
+//        var name = 'hh';
+//        function Test(name, age){
+//            this.name = name;
+//            this.age = age;
+//        }
+//        Test.prototype.sayHello = function(){
+//            aleft('hello');
+//        };
+//        var t = new Test('zhangsan', 23);
+//        t.__proto__.name = 'wangwu';
+//        console.log(t.name);
+//        xo = 'bb';
+//        console.log(init());
+//        function init(){
+//            return '222';
+//            var xo = 'xx';
+//            function init2(){
+//                var xo = 'aa';
+//                console.log(xo);
+//            }
+//            init2();
+//
+//        }
+//        init();
+
+        var scope = "global";
+        function constructFunction(){
+            var scope = "local";
+            return new Function("return scope");
+        }
+        console.log(constructFunction()());
+
+//        function constructFunction2(){
+//            var scope="local";
+//            return  function(){
+//                return scope;
+//            }
+//        }
+//        console.log(constructFunction2()());
+    }
+</script>
+

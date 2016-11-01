@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #ccc;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementById('box');
+    console.log(oBox.offsetWidth);   // 带边框
+    console.log(oBox.clientHeight);  // 不带边框
+</script>

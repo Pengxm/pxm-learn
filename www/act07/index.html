@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+    <!--<script src="js/egg.js"></script>-->
+    <script src="act07.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">BANNER</div>
+        <div class="bodyWrap">
+            <div class="eggWrap">
+                <img class="coin" id="coin" src="images/coin.png" alt="coin">
+                <img class="prize" id="prize"  src="images/unprize.jpg" alt="prize">
+                <img class="egg" id="egg" src="images/egg.png" alt="egg">
+                <span class="beat" id="beat"><img src="images/beat.png" alt="beat"></span>
+            </div>
+        </div>
+        <div class="tab">
+            <ul id="ulTab" class="ulTab">
+                <li id='ruleLi' class="rule">游戏规则</li>
+                <li id='recordLi' class="record">中奖纪录</li>
+            </ul>
+            <div class="divTab" id="rule">
+                <dl>
+                    <dt>活动时间</dt>
+                    <dd>
+                        <span id='startTime'>6月1日</span> 至 <span id='endTime'>6月5日</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>活动细则</dt>
+                    <dd>
+                        <ul>
+                            <li id='ruleTtl'></li>
+                            <li id='ruleCon'></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="divTab prizeRecord" id="record">
+                <ul id="scrollUl">
+                    <li>还没有登录，暂时无法查看记录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="popup" id="popup" >
+            <div class="alert">
+                <img id='smile' class="smile" src="images/smile_01.png" alt="" >
+                <h2 id="prizeTxt">恭喜你获得xxxxx</h2>
+                <div id="sureBtn" class="btn">确定</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

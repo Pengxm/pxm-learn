@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lime;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box" style="width: 200px;"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementsByTagName('div')[0];
+    console.log(oBox.clientWidth);
+    function getCss(ele){
+        ele = document.getElementById(ele);
+        alert(ele.clientWidth);
+    }
+    getCss('box');
+    function getStyle(elem,name){
+        if(elem.style[name]){
+            return elem.style[name];
+        }else if(elem.currentStyle){
+            return elem.currentStyle[name];
+        }else if(document.defaultView&&document.defaultView.getComputedStyle){
+            name=name.replace(/([A-Z])/g,"-$1");
+            name=name.toLowerCase();
+            var s=document.defaultView.getComputedStyle(elem,"");
+            return s&&s.getPropertyValue(name);
+        }else{
+            return null
+        }
+    }
+    function getFullWidth(elem){
+        if(getStyle(elem,"display")!="none"){
+            return getWidth(elem)||elem.offsetWidth;
+        }else{
+            var old=resetCss(elem,{display:"block",visibility:"hidden",position:"absolute"});
+            var w=elem.clientWidth||getWidth(elem);
+            restoreCss(elem,old);
+            return w;
+        }
+    }
+    console.log(getFullWidth('div'));
+</script>

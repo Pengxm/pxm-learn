@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>square</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        .box {
+            margin: 100px 200px;
+            position: relative;
+        }
+        .box div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #ccc;
+        }
+        .box div:nth-child(2) {
+            background-color: seagreen;
+            left: 100px;
+            top: -30px;
+            width: 70px;
+            transform: skewY(-40deg);
+        }
+        .box div:nth-child(3) {
+            background-color: #ddfdfa;
+            top: -26px;
+            height: 27px;
+            transform: skewX(-70deg);
+            left: 34px;
+        }.box div:nth-child(4) {
+             background-color: silver;
+         }
+        .box div:nth-child(5) {
+            background-color: #cc00cc;
+        }
+        .box div:nth-child(6) {
+            background-color: #bdcfdc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

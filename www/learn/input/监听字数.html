@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text"  name="wxChoiceInfo.infoTitle" id="wxChoiceInfoInfoTitle" size="120"  onkeyup="countNum(this)"/>
+<div id="countNum" style="color: blue">还可输入<span id="num">140</span>个汉字</div>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    function countNum(e){
+        var value=$(e).val();
+        var cArr = value.match(/([\u0391-\uffe5])/ig); // 返回中文的字符
+        var num=Math.floor((420-value.length-2*(cArr == null ? 0 : cArr.length))/3);
+        $("#num").text(num);
+        if(num>=0){
+            $("#countNum").css({"color": "#FBBC05"});
+        }else{
+            $("#countNum").css({"color": "#EA4335"});
+        }
+    }
+</script>
+
+</body>
+</html>

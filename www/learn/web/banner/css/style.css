@@ -1,0 +1,23 @@
+body{
+    padding-top: 70px;
+}
+
+.banner{
+    perspective:900px;
+    padding:0;
+    background: url(../images/loading.gif) no-repeat center center;
+}
+.banner canvas{
+    width: 100%;
+    height: 100%;
+}
+.banner canvas{
+    box-shadow : 0 0 10px rgba(0,0,0,0.6);
+    border-radius : 10px;
+    transform:none;
+}
+.banner canvas{
+    box-shadow : 0 0 15px rgba(0,0,0,0.6);
+    border-radius : 10px;
+    transform:none;
+}

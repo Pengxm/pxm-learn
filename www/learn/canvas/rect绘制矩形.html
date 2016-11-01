@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用rect方法绘制矩形</title>
+    <style>
+        canvas {border: thin solid orange;}
+        body > * {float: left;}
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="140">
+    Your browser doesn't support the <code>canvas</code> element
+</canvas>
+<script type="application/javascript">
+    var ctx = document.getElementById("canvas").getContext("2d");
+
+    ctx.fillStyle = "yellow";
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+    ctx.moveTo(110,10);
+    ctx.lineTo(110,100);
+    ctx.lineTo(10,10);
+    ctx.closePath();
+
+    ctx.rect(150,10,100,90);
+    ctx.rect(130,105,130,30);
+
+    ctx.fill();
+    ctx.stroke();
+</script>
+</body>
+</html>

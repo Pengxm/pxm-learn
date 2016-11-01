@@ -1,0 +1,7 @@
+<nav>
+    <ul>
+        <li class="index">index</li>
+        <li class="about">about</li>
+        <li class="content">content</li>
+    </ul>
+</nav>

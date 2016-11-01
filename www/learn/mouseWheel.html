@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseWheel</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--<script src="jquery-1.11.2.min.js"></script>-->
+<!--<script>-->
+    <!--!function ($) {-->
+        <!--$(document).on('mousewheel DOMMouseScroll', function (e) {-->
+            <!--//WebKit内核，Trident内核 => mousewheel-->
+            <!--//Gecko内核 => DOMMouseScroll-->
+            <!--e.preventDefault();-->
+            <!--var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;-->
+            <!--//e.originalEvent.wheelDelta => 120(up) or -120(down) 谷歌IE内核-->
+            <!--//e.originalEvent.detail => -3(up) or 3(down) 火狐内核-->
+            <!--var delta = Math.max(-1, Math.min(1, value));-->
+<!--//            console.log(delta < 0 ? 'down' : 'up');-->
+            <!--if(delta < 0) {-->
+                <!--console.log(1)-->
+            <!--} else if(delta > 0) {-->
+                <!--console.log(2)-->
+            <!--}-->
+        <!--});-->
+    <!--}(jQuery);-->
+<!--</script>-->
+<script>
+    !function () {
+        var EventUtil = {
+            addHandler: function (element, type, handler) {
+                if (element.addEventListener) {
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent) {
+                    element.attachEvent('on' + type, handler);
+                } else {
+                    element['on' + type] = handler;
+                }
+            },
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            stopPropagation: function (event) {
+                event = event || window.event;
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+        function handleMouseWheel(event) {
+            EventUtil.stopPropagation(event);
+            event = EventUtil.getEvent(event);
+            var value = event.wheelDelta || -event.detail;
+            var delta = Math.max(-1, Math.min(1, value));
+            console.log(delta < 0 ? 'down' : 'up');
+            if(delta < 0) {
+                console.log(1)
+            } else if(delta > 0) {
+                console.log(2)
+            }
+        }
+
+        EventUtil.addHandler(document, 'mousewheel', handleMouseWheel);
+        EventUtil.addHandler(document, 'DOMMouseScroll', handleMouseWheel);
+    }();
+</script>

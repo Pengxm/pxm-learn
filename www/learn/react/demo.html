@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-tab</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        button {
+            margin-left: 10px;
+        }
+        li {
+            background-color: silver;
+        }
+        .menu,.menus {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+</html>
+<script type="text/babel">
+    (function(){
+        /*var Menu = React.createClass({
+         move : function(){
+         this.setState({
+         open : true
+         });
+         },
+         out : function(){
+         this.setState({
+         open : false
+         })
+         },
+         getInitialState : function(){
+         return {
+         open : false
+         }
+         },
+         render : function(){
+         return (
+         <div className="menu">
+         <button onMouseOver={this.move} onMouseOut={this.out}>
+         {this.props.menuData.name}
+         </button>
+         <ul style={{display : this.state.open ? "block" : "none"}}>
+         {this.props.menuData.arr.map((el, index) => {
+         return (<li key = {index} > {el} </li>)
+         })}
+         </ul>
+         </div>
+         )
+         }
+         });
+         var Menus = React.createClass({
+         render : function() {
+         return (
+         <div className="menus">
+         {
+         this.props.data.map((el ,index)=>{
+         return (<Menu key={index} menuData={el}/>)
+         })
+         }
+         </div>
+         );
+         }
+         });
+         var data = [
+         {
+         name : "menuName",
+         arr : [
+         "menu1",
+         "menu2",
+         "menu3",
+         "menu4"
+         ]
+         },
+         {
+         name : "menuName1111",
+         arr : [
+         "menu-1",
+         "menu-2",
+         "menu-3",
+         "menu-4"
+         ]
+         }
+         ];
+         ReactDOM.render(<Menus data={data} />, document.getElementById("example"));*/
+
+        var Menu = React.createClass({
+            move : function(){
+                this.setState({
+                    open : true
+                })
+            },
+            out : function(){
+                this.setState({
+                    open : false
+                })
+            },
+            getInitialState : function() {
+                return {
+                    open : false
+                }
+            },
+            render : function(){
+                return (
+                       <div className="menu">
+                           <button onMouseOver={this.move} onMouseOut={this.out}>
+                               {this.props.menuData.name}
+                           </button>
+                           <ul style={{display: this.state.open ? "block" : "none"}}>
+                               {this.props.menuData.arr.map((el, index) => {
+                                   return (<li key = {index} > {el} </li>)
+                               })}
+                           </ul>
+                       </div>
+                )
+            }
+        });
+        var Menus = React.createClass({
+            render : function() {
+                return (<div className="menus">
+                    {this.props.data.map((el ,index)=>{
+                        return (<Menu key={index} menuData={el}/>)
+                    })}
+                </div>);
+            }
+        });
+        var data = [
+            {
+                name : "menuName",
+                arr : [
+                    "menu1",
+                    "menu2",
+                    "menu3",
+                    "menu4"
+                ]
+            },
+            {
+                name : "menuName1111",
+                arr : [
+                    "menu-1",
+                    "menu-2",
+                    "menu-3",
+                    "menu-4"
+                ]
+            }
+        ];
+        ReactDOM.render(<Menus data={data} />, document.getElementById("example"));
+
+    })();
+</script>

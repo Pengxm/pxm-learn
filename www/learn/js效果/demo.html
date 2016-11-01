@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放烟花</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            position: fixed;
+            background-color: #000;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+    <body>
+    </body>
+</html>
+<script>
+    (function(){
+        var oBody = document.getElementsByTagName('body')[0];
+
+        function createBox(){
+
+            oBody.onclick = function(event){
+                var oEvent = event || window.event;
+                var oDiv = document.createElement('div');
+                oDiv.style.width = '10px';
+                oDiv.style.height = '10px';
+                oDiv.style.backgroundColor = "#f40";
+                oDiv.style.borderRadius = "50%";
+                oDiv.style.bottom = '-10px';
+                document.getElementsByTagName('body')[0].appendChild(oDiv);
+                var x = oEvent.pageX;
+                var y = oEvent.pageY;
+                var timer = setInterval(function(){
+                    oDiv.style.top = oDiv.offsetTop-20+"px";
+                    oDiv.style.left = x+'px';
+                    if(n > y){
+                        oDiv.style.display = 'none';
+                        clearInterval(timer);
+                    }
+
+                }, 50);
+            }
+        }
+
+        createBox();
+    })();
+</script>

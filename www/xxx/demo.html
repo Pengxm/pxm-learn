@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-1.8.3.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+    <input type="text" placeholder="phoneNumber"><br>
+    <button>click</button>
+    <h1>xxx</h1>
+    <input type="file" id="file" name="file">
+</body>
+</html>
+<script>
+//    var i = 1;
+//    // i ++ 返回值是 本身
+//    console.log(i ++ + i ++ + i ++ + i);
+//    console.log(i);
+    console.log(window.location.pathname);
+    for(var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+    function say667() {
+        // Local variable that ends up within closure
+        var num = 666;
+        var sayAlert = function() {
+            alert(num);
+        };
+        num++;
+        return sayAlert;
+    }
+
+    var sayAlert = say667();
+    sayAlert();//执行结果应该弹出的667
+</script>

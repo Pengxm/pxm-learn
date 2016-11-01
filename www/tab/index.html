@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul,li {
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            width: 100px;
+            height: 50px;
+        }
+        .divBox>div {
+            width: 500px;
+            height: 200px;
+            font-size: 18px;
+            color: #333;
+            display: none;
+            border: 2px solid #ccc;
+        }
+        .act { background-color: #ccc; color: #fff;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="act">课程</li>
+            <li>活动视频</li>
+            <li>自媒体</li>
+            <li>专栏</li>
+        </ul>
+        <div class="divBox">
+            <div style="display: block">11</div>
+            <div>22</div>
+            <div>33</div>
+            <div>44</div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    $(function(){
+        $('li').click(function(){
+            var index = $(this).index();
+            $(this).addClass('act').siblings().removeClass('act');
+            $('.divBox>div').eq(index).css('display', 'block').siblings().css('display', 'none');
+        });
+    });
+</script>

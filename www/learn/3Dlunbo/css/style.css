@@ -1,0 +1,81 @@
+ * {
+     margin: 0;
+     padding: 0;
+     list-style: none;
+ }
+ .container {
+     width: 790px;
+     height: 360px;
+     margin: 100px auto 0;
+     position: relative;
+     -webkit-transform-style: preserve-3d;
+ }
+ ul {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 790px;
+     height: 360px;
+ }
+ li {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 158px;
+     height: 360px;
+     -webkit-transform-style: preserve-3d;
+     transition:all 1s ease 0s;
+ }
+
+ ul li.no1{
+     top: 0;
+     left: 0;
+ }
+ ul li.no2{
+     top: 0;
+     left: 158px;
+     transition:all 1s ease .4s;
+ }
+ ul li.no3{
+     top: 0;
+     left: 316px;
+     transition:all 1s ease .6s;
+ }
+ ul li.no4{
+     top: 0;
+     left: 474px;
+     transition:all 1s ease .8s;
+ }
+ ul li.no5{
+     top: 0;
+     left: 632px;
+     transition:all 1s ease 1s;
+ }
+ ul li span {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 158px;
+     height: 360px;
+ }
+ ul li .mianA{
+     background: url(../images/0.jpg);
+     -webkit-transform:translateZ(150px);
+     z-index: 2;
+     -webkit-backface-visibility:hidden;
+ }
+ ul li .mianB{
+     background: url(../images/1.jpg);
+     -webkit-transform:rotateX(90deg) translateZ(180px);
+     -webkit-backface-visibility:hidden;
+ }
+ ul li .mianC{
+     background: url(../images/2.jpg);
+     -webkit-transform:rotateX(180deg) translateZ(180px);
+     -webkit-backface-visibility:hidden;
+ }
+ ul li .mianD{
+     background: url(../images/3.jpg);
+     -webkit-transform:rotateX(-90deg) translateZ(180px);
+     -webkit-backface-visibility:hidden;
+ }

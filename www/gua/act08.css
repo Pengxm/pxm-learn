@@ -1,0 +1,143 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+
+body {
+    color: #fff;
+    font: 14px/1.5 "微软雅黑";
+    overflow: hidden;
+    background: url('images/guaguaka_bg.png') center top no-repeat;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+}
+
+:focus {
+    outline: none;
+}
+a { color: #fff; text-decoration: none; }
+a:hover { color: #fff; text-decoration: none; }
+ins {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    display: block;
+}
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+html { font-size: 100px; }
+
+.container {
+    width: 100%;
+    overflow: hidden;
+}
+.wrap {
+    width: 100%;
+    padding: .2rem;
+    box-sizing: border-box;
+}
+#gua1 {
+    position: relative;
+    width: 2.8rem;
+    height: 1.45rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+#gua1_img {
+    width: 2.8rem;
+    height: 1.45rem;
+    margin: 0 auto;
+}
+#front,#prizeTxt {
+    position: absolute;
+    left: .05rem;
+    top: .08rem;
+}
+#prizeTxt {
+    width: 2.7rem;
+    text-align: center;
+    line-height: 1.3rem;
+    font-size: .24rem;
+    color: #fff;
+    text-shadow: 5px 5px 20px #fff;
+    text-transform: uppercase;
+}
+
+.tab {
+    color: #fff;
+    overflow: hidden;
+}
+.ulTab {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 90;
+    margin-top: .1rem;
+}
+.ulTab li {
+    display: inline-block;
+    font:bold .16rem "微软雅黑";
+    background: #ffbe04;
+    padding: .05rem .1rem;
+    -moz-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+    cursor: pointer;
+    border-radius: .05rem;
+}
+.divTab {
+    display: none;
+    padding-top: .1rem;
+}
+.divTab li { font: .14rem/1.5 '微软雅黑'; }
+.prizeRecord {
+    width: 100%;
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+}
+.prizeRecord ul {
+    width: 100%;
+    padding-top: .1rem;
+    overflow: hidden;
+    position: absolute;
+    left:0;
+    top: 0;
+}
+dt {
+    width: 100%;
+    padding: .03rem 0 .03rem .1rem;
+    color: #e62d2d;
+    font-size: .16rem;
+    background: url('images/narrow_03.png') left center no-repeat;
+    box-sizing: border-box;
+}
+dd {
+    font: .14rem/1.5 "微软雅黑";
+    padding: .1rem 0 .1rem .1rem;
+    box-sizing: border-box;
+}
+.act { display: block; }
+/* 效果CSS结束 */

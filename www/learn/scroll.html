@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style>
+        body {
+            background-color: #0b0e10;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="sdmsg">
+    <marquee direction="up" scrollamount="4" style="color: #fff;">
+        ❉❉❉❉❉
+        沙扬娜拉-赠日本女郎 <br>
+        ——徐志摩<br>
+        最是那一低头的温柔，<br>
+        象一朵水莲花<br>
+        不胜凉风的娇羞，<br>
+        道一声珍重，道一声珍重，<br>
+        那一声珍重里有蜜甜的忧愁——<br>
+        沙扬娜拉！
+    </marquee>
+</div>
+</body>
+</html>
+<script src="jquery-1.11.2.min.js"></script>
+<script>
+    var minsize = 20; //雪花最小数值
+    var maxsize = 50;  //雪花最大数值
+    var flack = $("<div></div>").css({"position":"absolute","top":"-50px"}).html("❉"); //一个雪花
+    $(function(){
+        var sdwidth = $(document).width();  //浏览器宽度
+        var sdheight = $(document).height();  //浏览器高度
+        setInterval(function(){
+            var startwidth = Math.random()*sdwidth; //雪花开始距离屏幕左边随机数
+            var sdimg = minsize + Math.random()*(maxsize-minsize); //雪花随机大小
+            var endwidth = Math.random()*sdwidth; //雪花结束距离屏幕左边的随机数
+            var time = sdheight*Math.random() + 5000; //雪花降落的时间
+            var startoption = 0.7+0.3*Math.random(); //雪花开始降落的透明度
+            var endoption = 0.2 + 0.3*Math.random(); //雪花结束降落的透明度
+            flack.clone().appendTo($("body")).css({  //克隆雪花冰设置初始位置
+                "left":startwidth,
+                "font-size": sdimg,
+                "opacity":startoption,
+                "color":"#fff"
+            }).animate({  //animate,是执行动画的方法，这里用来雪花从上到下飘落
+                "top": sdheight-30,
+                "left": endwidth,
+                "opacity":endoption
+            },time,function(){
+                $(this).remove();  //雪花落在地上消失，移除制造出的雪花
+            })
+        }, 500)
+    });
+</script>

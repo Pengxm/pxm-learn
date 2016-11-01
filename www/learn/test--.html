@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">sss</button>
+</body>
+</html>
+<script>
+    /*
+    var name="somebody";
+    var adang = {
+        name : "adang",
+        say : function(){
+            console.log("I'm" + this.name);
+        }
+    };
+    adang.say();     // I'm adang
+    setTimeout(adang.say,1000);  // I'm somebody
+    setInterval(adang.say,1000);  // I'm somebody
+    // 解决办法使用匿名函数 --->
+    setTimeout(function(){ adang.say()},1000);  // I'm adang
+    */
+
+    var name = "somebody";
+    var btn = document.getElementById("btn");
+    var adang = {
+        name : "adang",
+        say : function(){
+            console.log("I'm" + this.name);
+        }
+    };
+    /*
+    adang.say();     // I'm adang
+//    btn.onclick = adang.say;   // I'm
+    // 解决办法使用匿名函数 --->
+    btn.onclick = function(){ adang.say()} ;  // I'm adang
+    */
+
+    adang.say.call(btn);     // I'm  ----  把this指向改成了按钮
+    adang.say.apply(btn);     // I'm  ----  把this指向改成了按钮
+//    setTimeout(adang.say,1000);  // I'm somebody
+//    setInterval(adang.say,1000);  // I'm somebody
+    setTimeout(function(){ adang.say.apply(btn)},1000);  // I'm
+
+
+
+    Array.prototype.uniqueOne = function(){
+        var array = [];
+        for(var i = 0; i < this.length; i++){
+            if(array.indexOf(this[i]) == -1){
+                array.push(this[i]);
+            }
+        }
+        return array;
+    };
+    Array.prototype.uniqueTwo = function(){
+        this.sort();
+        var array = this[0];
+        for(var i = 1; i < this.length; i ++){
+            if(this[i] !== array[array.length-1]){
+                array.push(this[i]);
+            }
+        }
+        return array;
+    }
+</script>

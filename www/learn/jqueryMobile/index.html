@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-1.11.2.min.js"></script>
+    <script src="jqueryMobile.min.js"></script>
+    <script>
+        $(document).on("pagecreate","#pageone",function(){
+            $("p").on("swipeleft",function(){
+                alert("您向左滑动!");
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+    <div data-role="header">
+        <h1>swipeleft 事件</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p style="border:1px solid black;margin:5px;">向左滑动 - 不要超出边框！</p>
+    </div>
+
+    <div data-role="footer">
+        <h1>页脚文本</h1>
+    </div>
+</div>
+
+</body>
+</html>

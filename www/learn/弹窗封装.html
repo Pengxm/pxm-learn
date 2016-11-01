@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery-1.11.2.min.js"></script>
+<script>
+    $(function(){
+        window.setAlert = setAlert;
+        setAlert('select', '您获得<span>5</span>邮币奖励！已加到账号，点击查看<br/><a href="javascript:;">其他活动</a>正确答案：<br/>1《论语》; 2、“仁”“礼”; 3、思而不学则怠; 4、勿施于人; 5、必先利其器; 6、必有近忧; 7、患不知人也; 8、来者犹可追', '200积分', '分享完成方法／体会，得更多u币');
+        function setAlert(type, text, inte, desc){
+            var data = {
+                // type:"prompt", // type:"confirm", // type:"select", 三种样式
+                type: type,
+                text: text,
+                inte: inte,
+                desc: desc
+            };
+            var alertBox = alertFn(data);
+            $('body').append(alertBox);
+            alertBox.fadeIn(); //在固定的位置直接使用
+            alertBox.find('#alert_confirm').on('click',function(){
+                console.log('确定按钮执行位置！');
+                alertBox.hide();
+            });
+        }
+
+    });
+    /*
+    * *
+     * [alertFn 描述]
+     * @param  {[type]}   [必填参数，值为3种，1.prompt 没有按钮的提示框；2.confirm 有一个确定按钮的提示框；3.select 有一个确认按钮和一个取消按钮的提示框]
+     * @param  {[text]}   [必填参数，用于显示提示信息]
+     * @param  {[inte]}   [选填参数，在prompt类型下，用于显示所获得的积分数]
+     * @param  {[desc]}   [选填参数，在prompt类型下，用于显示提示信息]
+     * @return {[type]}   [description]
+     */
+    var alertFn = function(o){
+        var o = o || {};
+        var centerCon = ''; //中心内容
+        var centerBtn = ''; //按钮选择
+        var alertAll = '';
+        if(o.type&&o.type=='prompt'){
+            centerCon = '<div style="padding-bottom:12px;">'+
+                    '    <div style="font-size:20px;color:#474747;padding-top:40px;">恭喜你</div>'+
+                    '    <div style="font-size:16px;color:#707070;padding:2em;">'+o.text+'</div>'+
+                    '    <div style="font-size:20px;color:#fda626;padding-bottom:18px;">+ '+o.inte+'</div>'+
+                    '    <div style="font-size:12px;color:#707070;">'+o.desc+'</div>'+
+                    '    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAgVBMVEUAAADk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OQ3BO7YAAAAKnRSTlMACr4C67l3LfBVGeQUmK/py7Ee2dKdkU4ptKihjYh+SkUxBfeVXBHCXz4g4RM+AAABqklEQVRIx6WW6XaCMBCFRzAYdhC0biButd73f8DaVhrCRCTH+zPnfFlmbmaGuAJ/ty5CKcNivbsE9FKBVwKQmUgSkUkApTcfBFZbII39QB0Yh8Bm9hT4jIH13tUX3SYBFpGZ+JhCHIxn55A+cblLpO063y3E+dhfnORwBqITCYhJj3Cw0B/BL5FpjJuj0gmuGqJ7tx0/g2uJuPM6OK8JcgX8/3ykaUAjFIWyzU+s6GHtsX1kCoJGKsdfrrc4jEVW2PxaD4JGK8GPrz3su2GpZr0kx11LNqiJKEuP2tp01rNF3N0xLIgiLKgr785ohKP55Iw5+bgQYzihsv5F1R3jzDOCIiwpOblkYhShSwoqSyIjYyYoKyh0yMyYCVpPSeZkZq5GgjanJwjVwFURGsIv1saqjRu/WFmaCac2M1nBgqyi6xkZKVQqmUseDEulMgwjFKMbRtmSEYrRbanMzwnF6OZXX4wTnGlQs498Oz0IxVT6R+bl4tbPeeOycmFblOxLn32BtS/j7zQLchPLlmTf+Ozbq30Ttx8V7AcS89gz52PP+8MVH+HyoRHuGz0mK5WfTrqvAAAAAElFTkSuQmCC" alt="关闭" style="position:absolute;top:-20px;right:0;width:24px;height:24px;" id="alert_shut">'+
+                    '</div>';
+            centerBtn = '';
+        }else if(o.type&&o.type=='confirm'){
+            centerCon = '<div style="font-size:20px;color:#474747;padding-top:30px;">温馨提示</div>'+
+                    '<div style="font-size:16px;color:#474747;padding:2em ;">'+o.text+'</div>';
+            centerBtn = '<div style="display:table;width:400px;table-layout:fixed;padding:7px 0;border-top:solid 1px #e4e4e4;">'+
+                    '    <div style="display:table-cell;vertical-align:middle;text-align:center;font-size:18px;height:30px;border-left:solid 1px #e4e4e4;color:#fda626;" id="alert_confirm">确定</div>'+
+                    '</div>';
+        }else if(o.type&&o.type=='select'){
+            centerCon = '<div style="font-size:16px;color:#474747;padding:50px 20px 38px; line-height: 1.5;">'+o.text+'</div>';
+            centerBtn = '<div style="display:table;width:400px;table-layout:fixed;padding:7px 0;border-top:solid 1px #e4e4e4;">'+
+                    '    <div style="display:table-cell;vertical-align:middle;text-align:center;font-size:18px;height:30px;color:#b2b2b2;" id="alert_cancel">取消</div>'+
+                    '    <div style="display:table-cell;vertical-align:middle;text-align:center;font-size:18px;height:30px;border-left:solid 1px #e4e4e4;color:#fda626;" id="alert_confirm">确定</div>'+
+                    '</div>';
+        }else{
+            centerCon = '<div style="font-size:16px;color:#f00;padding:50px 20px 38px;">请输入必填参数type！</div>';
+            centerBtn = '';
+        };
+        alertAll  = $('<div style="display:none;overflow:hidden;">'+
+                '    <div style="position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.54);z-index:10000; " id="alert_bg"></div>'+
+                '    <div style="position:fixed;top:40%;left:50%;z-index:10001;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);">'+
+                '        <div style="overflow:hidden;width:82px;height:82px;background:#fff;border-radius:50%;margin:0 auto;"><img src="data:image/png;base64,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" alt="灯" style="width:34px;height:54px;float:left;margin:16px 24px 0;"></div>'+
+                '        <div style="overflow:hidden;background:#fff;border-radius:10px;margin-top:-36px;">'+
+                '            <div style="width:400px;text-align:center;">'+centerCon+'</div>'+centerBtn+
+                '        </div>'+
+                '    </div>'+
+                '</div>');
+        alertAll.find('#alert_bg,#alert_cancel,#alert_shut').on('click',function(){
+            alertAll.hide();
+            return false;
+        });
+        return alertAll;
+    };
+</script>

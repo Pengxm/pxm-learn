@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.sayHello = function(){
+        alert('hello');
+    };
+    var p1 = new Person('hehe');
+    var p2 = new Person('haha');
+
+    console.log(p1.name);
+    console.log(p2.name);
+//    p1.sayHello();
+    p2.sayHello();
+</script>

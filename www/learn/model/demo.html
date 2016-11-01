@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    (function () {
+        window.open(function(){
+
+        }());
+        // 在函数的作用域中下面的变量是私有的
+
+        var myGrades = [93, 95, 88, 0, 55, 91];
+
+        var average = function () {
+            var total = myGrades.reduce(function (accumulator, item) {
+                return accumulator + item
+            }, 0);
+            console.log(total); // 422
+            return 'Your average grade is ' + total / myGrades.length + '.';
+        };
+        console.log(average());  // Your average grade is 70.3333333333
+
+        var failing = function () {
+            var failingGrades = myGrades.filter(function (item) {
+                return item < 70;
+            });
+
+            return 'You failed ' + failingGrades.length + ' times.';
+        };
+
+        console.log(failing());  // you failed 2 times
+
+    }());
+</script>

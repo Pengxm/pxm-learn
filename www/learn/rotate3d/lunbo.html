@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            width: 300px;
+            height: 180px;
+            border: 2px solid #ccc;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400%;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            overflow: hidden;
+            width: 25%;
+        }
+        a, img {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul >
+            <li>
+                <a href="javascript:;">
+                    <img src="img/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/1.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    window.onload = function(){
+        var oBox = document.getElementsByTagName('div')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+        var oLi = oUl.getElementsByTagName('li')[0];
+        var aLi = oLi.cloneNode(true);
+        oUl.appendChild(aLi);
+        var timer = null;
+        var n = 0;
+
+        setInterval(function(){
+            n ++ ;
+            if(n > 3) {
+                n = 1;
+                oUl.style.left = '-300px';
+            }
+            oUl.style.left = -n*300 + 'px';
+        }, 2000);
+
+    };
+</script>

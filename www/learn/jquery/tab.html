@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+         * {
+             margin: 0;
+             padding: 0;
+         }
+
+         #nav li {
+             list-style: none;
+             float: left;
+             height: 25px;
+             line-height: 25px;
+             border: 1px solid #0000FF;
+             border-bottom: none;
+             padding: 5px;
+             margin: 10px;
+             margin-bottom: 0;
+         }
+
+         #cont div {
+             width: 210px;
+             height: 150px;
+             border: 1px solid #0000FF;
+             margin-left: 10px;
+             clear: both;
+             display: none;
+         }
+
+         .active {
+             background: #AFEEEE;
+         }
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul id="nav">
+            <li class="active">HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <div id="cont">
+            <div style="display: block;">HTML</div>
+            <div>CSS</div>
+            <div>JAVASCRIPT</div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery-1.11.2.min.js"></script>
+<script>
+    (function($) {
+        $.fn.tab = function(options) {
+            var defaults = {
+                tabActiveClass: 'active',
+                tabNav: '#nav>li',
+                tabCont: '#cont>div',
+                tabType: 'click'
+            };
+
+            var endOptions = $.extend(defaults, options);
+            $(this).each(function() {
+                var _this = $(this);
+                _this.find(endOptions.tabNav).bind(endOptions.tabType, function() {
+                    $(this).addClass(endOptions.tabActiveClass).siblings().removeClass(endOptions.tabActiveClass);
+                    var index = $(this).index();
+                    _this.find(endOptions.tabCont).eq(index).show().siblings().hide();
+                });
+            });
+        };
+    })(jQuery);
+
+    $('#tab').tab({
+        tabType: 'mouseover'
+    });
+</script>

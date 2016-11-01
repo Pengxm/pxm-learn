@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    for(var i in location){
+        if(typeof location[i] == 'string'){
+            console.log( i + ' = "' + location[i] + ' " ');
+        }
+    }
+//    location.reload();  //重新刷新页面
+
+    function getUrl(){
+        //获取Url地址
+        var local_url="http://114.215.102.185:8080/tiger-portal/resources/fans2/active-1.html?activity_id=20&device_type=iPhone6,2&os=ios&device_id=fb106c38f465490fb6099106551460f2&user_id=11&token=E69AF51BACED46E3BFBA9D25E62F1849&ver=1.0";
+        var theRequest = new Object();
+        if(local_url.indexOf('?') != -1){
+            var str = local_url.split('?')[1];
+            console.log(str);
+            strs = str.split('&');
+            for(var i=0;i<strs.length;i++){
+                var a = strs[i].split('=')[0];
+                var b = strs[i].split("=")[1];
+                theRequest[a] = unescape(b);
+            }
+        }
+        return theRequest;
+    }
+    getUrl(); //activity_id=20&device_type=iPhone6,2&os=ios&device_id=fb106c38f465490fb6099106551460f2&user_id=11&token=E69AF51BACED46E3BFBA9D25E62F1849&ver=1.0"
+</script>

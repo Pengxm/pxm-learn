@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .container {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #00a4e4;
+            margin: 20px auto;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+        }
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>11111111</span>
+        <span>22222222</span>
+        <span>33333333</span>
+    </div>
+</body>
+</html>
+<script>
+    var funcA = function() {
+        this.show = function() {
+            console.log('funcA');
+        }
+    }
+    var funcB = function() {
+        funcA.call(this);
+    }
+    var b = new funcB();
+    b.show();
+</script>

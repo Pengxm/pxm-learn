@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时特效</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            time();
+            setInterval(time, 1000);
+
+            function time(){
+                var f_date=new Date("2016/9/8 12:00");
+                var n_date=new Date();
+                var aLi=document.querySelectorAll('ul li');
+                var total=(f_date.getTime()-n_date.getTime())/1000,
+                        h=num(Math.floor(total%86400/3600)),
+                        i=num(Math.floor(total%86400%3600/60)),
+                        s=num(Math.floor(total%60)),
+                        str=h+":"+i+":"+s,
+                        aImg=document.getElementsByTagName("img");
+                arr=str.split("");
+                setTimeout(function(){
+                    aImg[2].src="./img/bg.jpg";
+                    aImg[5].src="./img/bg.jpg";
+                },500);
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]==":"){
+                        aImg[i].src="./img/colon.jpg";
+                    }else{
+                        aImg[i].src="./img/"+arr[i]+".jpg";
+                    }
+                }
+            }
+        };
+
+        function num(a){
+            return a<10?"0"+a:""+a;
+        }
+
+    </script>
+    <style>
+        ul{
+            width: 500px;
+            padding: 0;
+            margin: 0 auto;
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+        }
+        ul li img{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>距离下课时间还有：</h1>
+    <ul>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+        <li><img src="" alt=""></li>
+    </ul>
+</body>
+</html>

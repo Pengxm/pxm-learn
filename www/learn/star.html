@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #star{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 30px;
+            bottom: 0;
+            margin: auto;
+            width: 80%;
+            font-size: 12px;
+        }
+        #star-div{
+            margin:5px;
+            font-size: 0;
+        }
+        #star-div a{
+            display: inline-block;
+            width: 21px;
+            height: 21px;
+            background: url(http://files.cnblogs.com/files/susufufu/star0.gif) no-repeat;
+
+        }
+        #star-div .on{
+            background: url(http://files.cnblogs.com/files/susufufu/star1.gif) no-repeat;
+        }
+        #star-info{
+            position: absolute;
+            top: 55px;
+            left: -30px;
+            display: none;
+            width: 155px;
+            height: 50px;
+            padding: 2px;
+            line-height: 17px;
+            border-radius: 8px;
+            background-color: gold;
+            z-index: 5;
+        }
+        #star-info:before{
+            content: '';
+            border-bottom: 10px solid gold;
+            border-left: 10px solid rgba(0,0,0,0);
+            border-right: 10px solid rgba(0,0,0,0);
+            position: absolute;
+            left: 35px;
+            top: -10px;
+        }
+        #star-span{line-height: 14px}
+        #star-info strong,#star-span strong{
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var sufuStar = function (){
+                //工具函数
+                function gbyId(id){return document.getElementById(id);}
+
+                function addEvent(elem,type,func){ //兼容IE
+                    if(elem.addEventListener){
+                        elem.addEventListener(type,func,false)
+                    }else if(elem.attachEvent){
+                        elem.attachEvent('on'+type,func)
+                    }
+                }
+                function getIndex(event) {  //兼容IE
+                    var e = event || window.event;
+                    var t = e.target || e.srcElement;
+                    if (t.tagName.toLowerCase() === 'a') {
+                        return  parseInt(t.innerHTML);
+                    }
+                }
+                function showInfo(index, msg){
+                    var info = gbyId('star-info');
+                    info.style.display = 'block';
+                    info.style.left = index*21-51+'px';
+                    info.innerHTML = "<strong> "+index+'分 '+msg[index-1].match(/(.+)\|/)[1]+'<br />'+'</strong>'+msg[index-1].match(/\|(.+)/)[1];
+                }
+                function appenStar(elem,nums){
+                    var frag = document.createDocumentFragment();  //为了提高性能,因使用DocumentFragment一次性append,这样页面只重新渲染一次
+                    for(var i = 0;i<nums;i++){
+                        var a =document.createElement('a');
+                        a.innerHTML = i+1;
+                        a.href = "javascript:;"; //阻止浏览器的点击链接的默认行为
+                        frag.appendChild(a);
+                    }
+                    elem.appendChild(frag);
+                }
+                //主体函数
+                function star(num,myMsg){
+                    var n = num||5;  //当num有值则取其值,无值则取默认值5;
+                    var clickStar=curentStar=0; //clickStar保存点击状态
+                    var msg = myMsg||[
+                                "很不满意|差得太离谱，与卖家描述的严重不符，非常不满",
+                                "不满意|部分有破损，与卖家描述的不符，不满意",
+                                "一般|质量一般，没有卖家描述的那么好",
+                                "满意|质量不错，与卖家描述的基本一致，还是挺满意的",
+                                "非常满意|质量非常好，与卖家描述的完全一致，非常满意"
+                            ];
+                    var starContainer = gbyId('star-div');
+                    appenStar(starContainer,n);
+                    addEvent(starContainer,'mouseover',over); //采用事件代理模式(通过<a>标签的父元素starContainer来代理事件)
+                    addEvent(starContainer,'mouseout',out);
+                    addEvent(starContainer,'click',click);
+                    function over(event){
+                        if(getIndex(event)){  //若getIndex(event)取不到值,说明当前触发事件的目标不是<a>标签
+                            var index = getIndex(event);
+                            change(index);
+                            showInfo(index,msg);
+                        }
+                    }
+                    function out(event){
+                        change();  //将评分设为已点击状态clickStar
+                        gbyId('star-info').style.display = 'none'
+                    }
+                    function click(event) {
+                        if (getIndex(event)) {
+                            var index = getIndex(event);
+                            clickStar = index;  //保存点击状态
+                            gbyId('star-info').style.display = 'none';
+                            gbyId('star-span').innerHTML = "<strong>" + index + '分 ' + msg[index - 1].match(/(.+)\|/)[1] + '</strong>'+'<br />'+ msg[index - 1].match(/\|(.+)/)[1];
+                        }
+                    }
+                    function change(index){
+                        curentStar = index||clickStar;
+                        for(var i=0;i<n;i++){
+                            starContainer.children[i].className = i<curentStar ? 'on' : ''
+                        }
+                    }
+                }
+                return {
+                    star:star
+                }
+            }(); //这里的()表示函数立即执行,这样变量sufuStar才能调用匿名函数的返回值star
+
+            //调用执行: sufuStar.star(num,myMsg),参数可为空,参数num,myMsg将设为默认值
+            sufuStar.star();
+        }
+    </script>
+</head>
+<body>
+<div id="star">
+    <span>点击星星打分:</span>
+    <div id="star-div">
+    </div>
+    <span id="star-span"></span>
+    <p id="star-info">
+    </p>
+</div>
+</body>
+</html>

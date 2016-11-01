@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>module</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    (function(){
+        function myModule(){
+            this.sayHello = function(){
+                alert('hello');
+            }
+        }
+        module.exports = myModule;
+        var myModule = require('myModule');
+        var mod = new myModule();
+        mod.sayHello();
+    })();
+</script>

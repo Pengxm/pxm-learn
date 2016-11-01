@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box {
+            width: 300px;
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        ul {
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            background-color: silver;
+            overflow: hidden;
+            padding: 10px 15px;
+            margin-right: 2px;
+        }
+        .div-box>div {
+            display: none;
+            border: 1px solid #ccc;
+            height: 100px;
+        }
+        .act {
+            background-color: seagreen;
+        }
+        .div-box .cur {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="oUl">
+            <li class="act">11111</li>
+            <li>22222</li>
+            <li>33333</li>
+        </ul>
+        <div class="div-box">
+            <div class="cur">第1个</div>
+            <div>第2个</div>
+            <div>第3个</div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../jquery-1.11.2.min.js"></script>
+<script>
+    var oBody = document.getElementsByTagName('body')[0];
+//    oBody.onmouseove = function(e){
+//
+//
+//    }
+    var aLi = document.getElementsByTagName('li');
+    for(var i = 0, len = aLi.length; i < len; i ++){
+        (function (n){
+            aLi[i].onclick = function(event){
+                var e = event || window.event;
+                console.log(n);
+                console.log(e.pageY);
+            }
+        })(i);
+    }
+    (function (){
+
+        function Tab($li, $div) {
+            this.li = $($li);
+            this.div = $($div);
+        }
+        Tab.prototype.setTab = function(){
+            var _this = this;
+            $(_this.li).click(function (){
+                var index = $(this).index();
+                $(this).addClass('act').siblings().removeClass('act');
+                $(_this.div).eq(index).addClass('cur').siblings().removeClass('cur');
+            });
+        };
+        var t1 = new Tab('.oUl li', '.div-box>div');
+        t1.setTab();
+
+    })();
+
+
+
+//    (function($){
+
+//        $.fn.tabs = function(options) {
+//
+//            var defaults = {
+//                Event: 'click',
+//                activeClass: 'active'
+//            };
+//            var options = $.extend(defaults, options);
+//
+//            return $(this).each(function(){
+//
+//                var $thisTab = $(this).find('ul');
+//                var $tabCon = $thisTab.siblings('div');
+//
+//                $tabCon.find('div').each(function(){
+//                    $(this).hide();
+//                });
+//
+//                $thisTab.find('li:first').addClass(options.activeClass);
+//                $tabCon.find('div:first').show();
+//
+//                $thisTab.find('li').each(function(index){
+//
+//                    $(this).on(options.Event, function(){
+//
+//                        $(this).siblings().removeClass(options.activeClass);
+//                        $(this).addClass(options.activeClass);
+//                        $tabCon.find('div').eq(index).show().siblings().hide();
+//
+//                    });
+//
+//                });
+//            });
+//        }
+
+
+//        $.fn.Tab = function(options){
+//            var defaults = {
+//                Event : 'click',
+//                activeClass : 'act'
+//            };
+//            var options = $.extend(defaults, options);
+//            return $(this).each(function(){
+//                var $thisTab = $(this).find('ul');
+//                var $tabCon = $thisTab.siblings('div');
+//                $tabCon.find('div').each(function(){
+//                    $(this).hide();
+//                });
+//                $thisTab.find('li:first-child').addClass(options.activeClass);
+//                $tabCon.find('div:first-child').show();
+//                $thisTab.find('li').each(function(index){
+//                    $(this).on(options.Event, function(){
+//                        console.log(index);
+//                        $(this).addClass(options.activeClass).siblings().removeClass(options.activeClass);
+//                        $tabCon.find('div').eq(index).show().siblings().hide();
+//                    })
+//                })
+//
+//            })
+//        }
+//
+//
+//
+//    })(jQuery);
+//    $('.box').Tab({
+//        activeClass: 'act'
+//    });
+</script>

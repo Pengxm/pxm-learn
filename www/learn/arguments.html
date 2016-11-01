@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    window.onload = function(){
+//        var obj = {
+//            "0":100,
+//            "1":"sdfsafd",
+//            length:2,
+//            each:function(){
+//
+//            }
+//        };
+//        console.log(Array.prototype.slice.call(obj));
+
+        function sum(n, n2){
+            if(arguments.length == 1){
+                return n;
+            } else if (arguments.length == 2){
+                return n + n2;
+            }
+        }
+        console.log(sum(20));
+        var a=[1,2,3,4,5];
+        function b(c){c=[]};
+        console.log( b(a) ); // undefined
+    };
+</script>

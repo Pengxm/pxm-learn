@@ -1,0 +1,273 @@
+/*
+  var rem/@base;
+*/
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+s {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+}
+em,
+i {
+  font-style: normal;
+}
+strong {
+  font-weight: normal;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+body {
+  font-size: 0.19444444rem;
+  background-color: #440007;
+  font-family: "Microsoft YaHei";
+}
+ul,
+ol {
+  list-style-type: none;
+}
+select,
+input,
+img,
+select {
+  vertical-align: middle;
+}
+input {
+  font-size: 0.36111111rem;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.clear {
+  clear: both;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+.header {
+  width: 100%;
+  position: relative;
+}
+.bodyTit {
+  text-align: center;
+  margin-bottom: 0.27777778rem;
+}
+.bodyTit span {
+  display: inline-block;
+  height: 1.16666667rem;
+}
+.mail {
+  width: 2.76388889rem;
+}
+.qjd {
+  width: 2.41666667rem;
+  margin: 0 0.66666667rem;
+}
+.fs {
+  width: 3.08333333rem;
+}
+.content {
+  width: 100%;
+  overflow: hidden;
+}
+.wrap {
+  margin: 0 auto;
+  width: 9.47222222rem;
+  height: 6.08333333rem;
+  padding: 0.52777778rem 0.52777778rem 0 0.18055556rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: url("../images/borderBg_07.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.leftImg {
+  position: relative;
+  width: 4.79166667rem;
+  height: 4.95833333rem;
+  float: left;
+  overflow: hidden;
+  display: inline-block;
+}
+.lunbo {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  top: 0;
+  overflow: hidden;
+}
+.rightCon {
+  float: left;
+  position: relative;
+  width: 3.94444444rem;
+  display: inline-block;
+  overflow: hidden;
+}
+.rightCon p {
+  text-align: right;
+  color: #997b3c;
+  display: block;
+  width: 100%;
+  font-size: 0.33333333rem;
+}
+.purchase {
+  position: absolute;
+  left: 0.20833333rem;
+  top: 0.27777778rem;
+  color: #e50013;
+  font-size: 0.27777778rem;
+}
+.rightCon h3 {
+  font-size: 0.5rem;
+  color: #ffdd90;
+  font-weight: normal;
+  text-align: center;
+  margin: 0.27777778rem 0 0.41666667rem;
+  padding-bottom: 2px;
+  background: url('../images/line_09.png') no-repeat left bottom;
+  background-size: 100% 1px;
+}
+.rightCon s {
+  font-size: 0.27777778rem;
+  color: #f00;
+}
+s::after {
+  content: '市场价:￥78';
+  color: #fff;
+  margin-left: 0.13888889rem;
+}
+.priceDiv {
+  display: inline-block;
+  color: #ffd073;
+  font-size: 0.38888889rem;
+  padding-left: 0.13888889rem;
+  font-family: '微软雅黑';
+  background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffe4b7), to(#ffcf62));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.priceDiv span {
+  font-size: 0.55555556rem;
+  font-weight: bold;
+}
+.pricebtm {
+  overflow: hidden;
+  text-align: center;
+  margin-top: 0.34722222rem;
+  padding-left: 0.34722222rem;
+  box-sizing: border-box;
+}
+.pricebtm > div,
+.circle,
+.circleWrap,
+.tit {
+  overflow: hidden;
+}
+.pricebtm > div > span {
+  display: inline-block;
+  width: 0.69444444rem;
+  height: 0.69444444rem;
+  line-height: 0.55555556rem;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  color: #aaa;
+  font-size: 0.41666667rem;
+  float: left;
+  overflow: hidden;
+}
+.pricebtm input {
+  width: 1.38888889rem;
+  margin: 0 0.13888889rem;
+  height: 0.69444444rem;
+  float: left;
+  overflow: hidden;
+  border: 1px solid #aaa;
+  color: #e50013;
+  font-size: 0.38888889rem;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #440007;
+}
+.pricebtm p {
+  display: block;
+  font-size: 0.33333333rem;
+  color: #fcdb8f;
+  text-align: left;
+  margin: 0.41666667rem 0 0 0.69444444rem;
+}
+.pricebtm p span {
+  color: #e50013;
+}
+.circle li {
+  margin: 0.08333333rem 0.06944444rem 0;
+  width: 0.09722222rem;
+  height: 0.09722222rem;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.circle li:first-child {
+  margin-left: 2.77777778rem;
+}
+.circle .act {
+  background-color: #c451b4;
+}

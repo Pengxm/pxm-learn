@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            background: seagreen;
+            margin: 50px auto;
+            position: relative;border: 1px solid #ccc;
+        }
+        .child {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            animation: run 10s linear;
+            position: absolute;
+
+            border: 3px solid lightcoral;
+        }
+
+
+        @keyframes run {
+            0% {rect(0px,100px,100px,0px)}
+            25% {rect(0px,0px,100px,100px)}
+            50% {rect(0px,100px,0px,100px)}
+            75% {rect(100px,100px,0px,0px)}
+            100% {rect(0px,100px,100px,0px)}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

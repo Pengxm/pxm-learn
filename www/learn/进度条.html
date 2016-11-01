@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形进度条</title>
+    <!-- 本例子兼容性不好，基于css3的属性的 -->
+    <style>
+        /* clip是背景截取，它是会截取背景后是真正不截取了，就算旋转，被截取的背景也不会出现了
+            ，且截取到的背景出了截取范围，是会像overflow一样被隐藏掉。所以基于这个想法，做
+            圆形进度条
+            clip:rect(top,right,bottom,left);
+            这里的clip需要自己体验，才能知道它的效果。
+            为什么会有两个盒子呢？就是一个父盒子和子盒子。
+            这是为了达到一个静态截取，而一个动态的旋转的，但这个这截取是为了获得半个圆。
+            那么就可以实现进度条了，剩下的就是js的效果
+         */
+
+        /* 以下是进度条的样式 */
+        .progress{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            background: #00aacc;
+            border-radius: 50%;
+        }
+        .leftBox,.rightBox{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+        }
+        .leftBox{
+            clip:rect(0,100px,auto,0);
+        }
+        .rightBox{
+            clip:rect(0,auto,auto,100px);
+        }
+        .mask{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 25px;
+            left: 25px;
+            background: #fff;
+            z-index: 2;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 150px;
+            font-size: 30px;
+            color: #0cc;
+        }
+        .left,.right{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: #0cc;
+            border-radius: 50%;
+        }
+        .left{
+            clip:rect(0,100px,auto,0);
+            transform: rotate(0deg);
+        }
+        .right{
+            clip: rect(0,auto,auto,100px);
+            transform: rotate(0deg);
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oLeft = document.querySelector(".progress .left"),
+                oRight = document.querySelector(".progress .right"),
+                oT = document.querySelector(".mask .text"),
+                timer = null;
+            num=0;
+            num2=0;
+            count=0;
+            val=null;
+            offOn=true;
+            timer=setInterval(function(){
+                /*这里做的不理想，不应该这样传参数的*/
+                move({
+                    percentage:oT,
+                    left:oLeft,
+                    right:oRight,
+                })
+            },30);
+
+            function move(json){
+                if(num<=180 && offOn){
+                    json.right.style.transform="rotate("+num+"deg)";
+                    num++;
+                }else{
+                    offOn=false;
+                    num2++;
+                }
+
+                if(num2<=180 && !offOn){
+                    json.left.style.transform="rotate("+num2+"deg)";
+                }
+                if(num2>180){
+                    clearInterval(timer);
+                }
+                count++;
+                val=Math.floor(count*100/360);
+                json.percentage.innerHTML=val;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="progress">
+    <!-- 上面说的父盒子和子盒子就是leftBox和left和下面那个 -->
+    <div class="leftBox">
+        <div class="left"></div>
+    </div>
+    <div class="rightBox">
+        <div class="right"></div>
+    </div>
+    <div class="mask"><span class="text">0</span><span>%</span></div>
+</div>
+
+</body>
+</html>

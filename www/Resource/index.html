@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta http-equiv="Content-type" Content="text/html;charset=utf-8" />
+    <title>canvas砸金蛋</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="canvas-box" class="canvas-box">
+        <canvas id="canvas" width="1200" height="600"></canvas>
+        <div class="canvas-tool clearfix" id="canvas-tool">
+            <a href="javascript:;" class="cancel btn" id="cancel-btn">取消</a>
+            <a href="javascript:;" class="close btn hidden" id="close-btn">关闭</a>
+            <div class="beat-egg-container">
+                <a href="javascript:;" class="beat-egg btn" id="beat-egg-btn">砸蛋</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main" id="main">
+        <div class="container">
+            <div id="egg-container" class="egg-container">
+                <ul class="clearfix"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var prizeGroup = [
+            {name: '数码相机1', url: 'Images/prize1.jpg', complete: true, success: true, activityId: 1, eggId: 1 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 2 },
+            {name: '数码相机2', url: 'Images/prize2.jpg', complete: false, success: true, activityId: 1, eggId: 3 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 4 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 5 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 6 },
+            {name: '数码相机3', url: 'Images/prize3.jpg', complete: false, success: true, activityId: 1, eggId: 7 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 8 },
+            {name: '未中奖', url: 'Images/unprize.jpg', complete: false, success: false, activityId: 1, eggId: 9 }
+        ];
+    </script>
+    <script type="text/x-jquery-tmpl" id="eggTmpl">
+        <li class="prize-egg-li {{if complete}} complete {{/if}} {{if !success}} fail {{/if}}">
+            <a class="prize-egg-a">
+                <div class="egg2_2"></div>
+                <div class="egg_gift">
+                    <img src="{{= img}}" />
+                </div>
+                <div class="egg2_1"></div>
+                <i>{{= i}}</i>
+            </a>
+        </li>
+    </script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.tmpl.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/Egg/beat.js"></script>
+    <script src="js/Egg/egg.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
+<script src='js/phoneauto.js'></script>

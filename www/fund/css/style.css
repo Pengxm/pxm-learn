@@ -1,0 +1,440 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+em,
+i {
+    font-style: normal;
+}
+strong {
+    font-weight: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+body {
+    font-size: 14px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+}
+ul,
+ol {
+    list-style-type: none;
+}
+select,
+input,
+img,
+select {
+    vertical-align: middle;
+}
+input, button {
+    font-size: 18px;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+/*=========start==============*/
+.container {
+    width: 100%;
+    overflow: hidden;
+}
+header {
+    width: 100%;
+    overflow: hidden;
+}
+.tit {
+    width: 100%;
+    height: 34px;
+    background-color: #6666cc;
+}
+.headerTit {
+    width: 1100px;
+    margin: 0 auto;
+    height: 34px;
+    font: 14px/34px "微软雅黑";
+    overflow: hidden;
+}
+.headerTit div {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+}
+.titLeft {
+    padding-left: 30px;
+    box-sizing: border-box;
+    background: url("../images/phone_03.png") no-repeat left center;
+}
+.headerTit .titRight {
+    float: right;
+}
+.user {
+    margin-right: 16px;
+}
+.time {
+    margin: 0 32px;
+}
+nav {
+    height: 102px;
+    padding-top: 23px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #6666cc;
+}
+.navWrap {
+    width: 1100px;
+    margin: 0 auto;
+    height: 79px;
+    overflow: hidden;
+}
+h1 {
+    display: inline-block;
+    width: 373px;
+    height: 64px;
+}
+.nav {
+    float: right;
+    padding-top: 34px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 100%;
+}
+.nav li {
+    height: 100%;
+    float: left;
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.nav li a {
+    display: block;
+    color: #333;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 24px;
+}
+.act {
+    border-bottom: 2px solid #f5a300;
+}
+.lineDiv {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ccc;
+}
+/*===============body==============*/
+.body {
+    width: 100%;
+    overflow: hidden;
+}
+.bodyWrap {
+    width: 1100px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.fund {
+    color: #333;
+    display: inline-block;
+    padding: 25px 62px 70px 26px;
+    background-color: #fdfdff;
+    box-sizing: border-box;
+}
+.fund h2 {
+    font-size: 24px;
+    line-height: 80px;
+    overflow: hidden;
+    font-weight: normal;
+}
+.fund h2 span {
+    color: #999;
+    font-size: 16px;
+}
+.fundTit, .fundBtm {
+    font-size: 14px;
+    color: #5e5e5e;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+.fundTit .num {
+    font-size: 36px;
+    color: #ff3333;
+}
+
+.fundTit-left, .fundTit-right,.fundTit-center {
+    display: inline-block;
+    height: 110px;
+    overflow: hidden;
+}
+.fundTit .fundTit-left ul {
+    padding-right: 22px;
+    border-right: 1px solid #eee;
+}
+
+.fundTit-right, .fundTit-center {
+    padding-left: 22px;
+}
+.fundTit .second {
+    line-height: 60px;
+}
+.fundBtm {
+    border: none;
+}
+.fundBtm dt {
+    padding: 24px 0 10px;
+}
+.fundBtm dd { overflow: hidden; position: relative;}
+.fundBtm input {
+    width: 260px;
+    border: 1px solid #ccc;
+    border-right: none;
+    font-size: 18px;
+    float: left;
+    padding-left: 10px;
+    overflow: hidden;
+    height: 44px;
+    box-sizing: border-box;
+}
+.fundBtm dd::after {
+    content: '元';
+    position: absolute;
+    left: 230px;
+    top: 10px;
+    color: #666;
+    font-size: 18px;
+    z-index: 100;
+}
+.fundBtm button {
+    width: 160px;
+    height: 44px;
+    position: relative;
+    line-height: 44px;
+    color: #fff;
+    float: left;
+    overflow: hidden;
+    background-color: #f5b73c;
+    font-size: 20px;
+
+}
+.fundBtm button.dt {
+    width: 86px;
+    border: 1px solid #f5b73c;
+    color: #f5b73c;
+    background-color: #fff;
+    margin-left: 5px;
+}
+.fund span {
+    color: #ff3333;
+}
+.fund .fundBtm p {
+    margin-top: 22px;
+}
+.trend {
+    float: right;
+    overflow: hidden;
+}
+/*===========footer============*/
+footer {
+    background-color: #f4f6f8;
+    overflow: hidden;
+}
+.footer {
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+.footerLeft {
+    color: #333;
+    box-shadow: 0 0 10px #ccc;
+    display: inline-block;
+}
+.footerNav {
+    background: -moz-linear-gradient(top, #fff 0%, #eee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ececf2));
+    background: -webkit-linear-gradient(top, #fff 0%,#ececf2 100%);
+    background: -o-linear-gradient(top, #fff 0%,#ececf2 100%);
+    background: -ms-linear-gradient(top, #fff 0%,#ececf2 100%);
+    background: linear-gradient(to bottom, #fff 0%,#ececf2 100%);
+    height: 46px;
+    line-height: 46px;
+    box-sizing: border-box;
+    padding: 0 139px 0 36px;
+}
+.footerNav li {
+    float: left;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.footerNav li a {
+    color: #333;
+    display: block;
+    padding: 0 18px;
+    font-size: 18px;
+}
+.current {
+    height: 47px;
+    line-height: 46px;
+    margin-top: -1px;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-top: 2px solid #f5a300;
+    box-sizing: border-box;
+}
+
+.cp {
+    width: 100%;
+}
+.divNav {
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    height: 1230px;
+}
+.divNav div {
+    display: none;
+}
+.divNav div.cur {display: block;}
+
+/*============footerRight  start=================*/
+.footerRight {
+    float: right;
+    overflow: hidden;
+    display: inline-block;
+    width: 258px;
+}
+.footerRight>div {
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ccc;
+}
+.footerRight h3 {
+    font: 18px/44px "微软雅黑";
+    height: 44px;
+    padding: 0 10px;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    color: #000;
+}
+.lunbo {
+    overflow: hidden;
+    height: 364px;
+    position: relative;
+}
+.lunbo>ul {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.lunbo dl {
+    width: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-bottom: 1px dashed #e6e6e6;
+}
+.lunbo dl dt, .lunbo dl dd {
+    float: left;
+    font-size: 16px;
+    color: #666;
+    overflow: hidden;
+}
+.lunbo dl span {
+    display: block;
+}
+.lunbo dl dt span:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 115px;
+}
+.lunbo dl dt span:last-child {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+.lunbo dl dd {
+    float: right;
+}
+.lunbo dl dd span:first-child {
+    color: #ff3333;
+}
+.lunbo dl dd span:last-child {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+.lunbo li dl.noBorder {
+    border: none;
+}
+.footerRight .bannerDiv {
+    width: 259px;
+    height: 127px;
+    margin-bottom: 15px;
+}
+
+

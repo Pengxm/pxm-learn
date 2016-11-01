@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <script src = "react-min/build/react.js"></script>
+    <script src = "react-min/build/react-dom.js"></script>
+    <script src="http://static.runoob.com/assets/react/browser.min.js"></script>
+    <style>
+        .active{
+            color:#00ff00;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+
+</div>
+<div id="example1">
+</div>
+<script type="text/babel">
+    var NavClass = React.createClass({
+        render : function() {
+            return (<div>
+                {this.props.navs.map((el,index)=>{
+                    return (<button onClick={this.props.clk.bind(null,index)} className={this.props.index==index?"active":""} key={index}>{el}</button>)
+                })}
+            </div>);
+        }
+    });
+    var ContentsClass = React.createClass({
+        render : function() {
+            return (<div>
+                {this.props.contents.map((el, index)=>{
+                    return (<span  key={index} className={this.props.index==index?"active":""}>
+                        {el}
+                    </span>)
+                })}
+            </div>)
+        }
+    });
+    var Tab = React.createClass({
+        getInitialState : function() {
+            return {
+                index : 0
+            };
+        },
+        handleClick : function(index) {
+            console.log(this)
+            this.setState({
+                index : index
+            })
+        },
+        render : function() {
+            return (<div className="tabs">
+                <NavClass ref="nav" clk={this.handleClick} index={this.state.index} navs={this.props.navs} />
+                <ContentsClass ref="con" index={this.state.index} contents={this.props.contents} />
+            </div>)
+        }
+    });
+    var obj = {
+        navs : ["a","b","c"],
+        contents : ["内容a","内容bbbbb","内容ccccc"]
+    }
+    //console.time();
+    ReactDOM.render(
+            <Tab navs={obj.navs}  contents={obj.contents}/>,
+            document.getElementById('example')
+    );
+    ReactDOM.render(
+            <Tab navs={obj.navs}  contents={obj.contents}/>,
+            document.getElementById('example1')
+    );
+    // document.getElementById("example").innerHTML = '<div data-reactroot="" class="tabs"><div><button class="active">a</button><button class="">b</button><button class="">c</button></div><div><span class="active">aaaaa</span><span class="">bbbbb</span><span class="">ccccc</span></div></div>'
+    //console.timeEnd()
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+}
+em,
+i {
+  font-style: normal;
+}
+strong {
+  font-weight: normal;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+}
+ul,
+ol {
+  list-style-type: none;
+}
+select,
+input,
+img,
+select {
+  vertical-align: middle;
+}
+input {
+  font-size: 0.36111111rem;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.clear {
+  clear: both;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.container,
+.header {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.title {
+  width: 100%;
+  font-size: 0.25rem;
+  color: #fefb00;
+  line-height: 0.55555556rem;
+  padding: 0.11111111rem 0.83333333rem 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #004b32;
+}
+.afterImg::after {
+  content: '';
+  position: absolute;
+  left: 0.125rem;
+  top: -0.08333333rem;
+  width: 0.59722222rem;
+  height: 0.80555556rem;
+  background: url("../images/medal_03.png") no-repeat center;
+  background-size: 100% 100%;
+}
+h2 {
+  color: #fff;
+  display: inline-block;
+  font-size: 0.33333333rem;
+}
+.title p {
+  float: right;
+}
+table {
+  width: 100%;
+  color: #2a2a2a;
+  font-size: 0.33333333rem;
+  line-height: 0.55555556rem;
+  text-align: center;
+}
+thead {
+  line-height: 0.625rem;
+  background-color: #ffeaea;
+}
+thead td,
+tbody tr:last-child td {
+  border-bottom: 2px solid #f19ec2;
+  box-sizing: border-box;
+}
+.flag {
+  width: 0.51388889rem;
+  height: 0.31944444rem;
+  margin-left: 0.20833333rem;
+  display: inline-block;
+  position: relative;
+  top: 0.02777778rem;
+}
+tbody tr:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+.match .title,
+.hot .title {
+  margin: 0.69444444rem 0 0.13888889rem;
+  padding-left: 0.25rem;
+}
+.hot {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0.69444444rem;
+  border-bottom: 2px solid #15845e;
+}
+.project {
+  overflow: hidden;
+  font-size: 0.33333333rem;
+  line-height: 0.55555556rem;
+  box-sizing: border-box;
+  border-bottom: 2px solid #15845e;
+}
+.project li {
+  float: left;
+  width: 33%;
+  background-color: #ededed;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+.project li:nth-child(2) {
+  margin: 0 0.5%;
+}
+.project .act {
+  color: #fff;
+  background-color: #15845e;
+}
+.box {
+  width: 100%;
+  height: 1.84722222rem;
+  overflow: hidden;
+  position: relative;
+}
+.lunboWrap {
+  width: 400%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.lunbo {
+  float: left;
+  overflow: hidden;
+  width: 25%;
+  border-bottom: 2px solid #15845e;
+  box-sizing: border-box;
+}
+.lunbo > ul > li ul {
+  width: 100%;
+  overflow: hidden;
+}
+.lunbo ul li ul:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+.lunbo li li {
+  font-size: 0.33333333rem;
+  color: #3e3e3e;
+  float: left;
+  overflow: hidden;
+  width: 33%;
+  line-height: 0.55555556rem;
+}
+.lunbo li li:first-child {
+  text-align: center;
+}
+.lunbo li li:nth-child(2) {
+  text-align: left;
+  padding-left: 0.20833333rem;
+  box-sizing: border-box;
+}
+.lunbo li li span {
+  float: right;
+  width: 0.51388889rem;
+  height: 0.31944444rem;
+  position: relative;
+  top: 0.13888889rem;
+  margin-right: 0.13888889rem;
+}
+.lunbo li li:nth-child(3) {
+  padding-left: 0.27777778rem;
+  box-sizing: border-box;
+}
+.hotWrap > li {
+  width: 100%;
+  overflow: hidden;
+  font-size: 0.33333333rem;
+  line-height: 0.55555556rem;
+}
+.hotWrap > li:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+.hotWrap > li li {
+  float: left;
+  width: 33%;
+}
+.hotWrap > li li:first-child {
+  padding-left: 0.69444444rem;
+  box-sizing: border-box;
+}
+.hotWrap > li li:last-child {
+  color: #ed1130;
+}
+.blogroll li {
+  width: 100%;
+  overflow: hidden;
+}
+.blogroll li h3,
+.blogroll li p {
+  padding: 0 10px;
+  font-size: 0.33333333rem;
+}
+.blogroll li a {
+  display: block;
+  margin-bottom: 0.13888889rem;
+}
+.blogroll li p {
+  margin-top: 0.13888889rem;
+  display: inline-block;
+}
+.blogroll li .btn {
+  padding: 0.13888889rem 0.34722222rem;
+  text-align: center;
+  color: #fff;
+  float: right;
+  margin-right: 0.20833333rem;
+  border-radius: 0.20833333rem;
+  background-color: #ff5d26;
+}

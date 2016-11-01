@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+    <div id="box" style="height: 100px; background-color: seagreen"></div>
+</body>
+</html>
+
+<script>
+    (function(){
+        window.onload = function(){
+            addEvent();
+        };
+        function addEvent(){
+            document.getElementById('box').onclick = function(){
+                alert(2);
+            }
+        }
+    })();
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.sayName = function(){
+        alert(this.name);
+    };
+    function People(){}
+    People.prototype = new Person('xx');
+    var p = new People();
+    p.sayName();
+</script>

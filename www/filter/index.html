@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--header开始-->
+     <header>
+
+     </header>
+        <div id="filter">
+
+        </div>
+        <div id="hot-product">
+            <h2>热门产品</h2>
+         <ul class="hot-product-list">
+               <li>
+                 <a href="">
+                     <img src="images/demo.jpg" alt="">
+                     <span>
+
+                     </span>
+                 </a>
+             </li>
+             <li>
+                 <a href="">
+                     <img src="images/demo.jpg" alt="">
+                     <span>
+
+                     </span>
+                 </a>
+             </li>
+             <li>
+                 <a href="">
+                     <img src="images/demo.jpg" alt="">
+                     <span>
+
+                     </span>
+                 </a>
+             </li>
+             <li>
+                 <a href="">
+                     <img src="images/demo.jpg" alt="">
+                     <span>
+
+                     </span>
+                 </a>
+             </li>
+         </ul>
+        </div>
+        <div id="all-product">
+            <h2>全部产品</h2>
+               <ul class="all-product-list">
+                <li>
+                    <a href="#">
+                        <div class="all-product-img">
+                            <img src="images/demo.jpg" alt="">
+                        </div>
+                        <div class="all-product-info">
+                            <div class="all-product-info-name">
+                                <span>BlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlueBlue</span>
+                            </div>
+                            <div class="all-product-info-price">
+                                <span >1500-2000元</span>
+                                <span>来源:sweetwater</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="all-product-img">
+                            <img src="images/demo.jpg" alt="">
+                        </div>
+                        <div class="all-product-info">
+                            <div class="all-product-info-name">
+                                <span>BlueBlueBlueBlueBle</span>
+                            </div>
+                            <div class="all-product-info-price"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="all-product-img">
+                            <img src="images/demo.jpg" alt="">
+                        </div>
+                        <div class="all-product-info">
+                            <div class="all-product-info-name">
+                                <span>BlueBlueBlueBlueBlueBBlue</span>
+                            </div>
+                            <div class="all-product-info-price"></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="all-product-img">
+                            <img src="images/demo.jpg" alt="">
+                        </div>
+                        <div class="all-product-info">
+                            <div class="all-product-info-name">
+                                <span>Bluee</span>
+                            </div>
+                            <div class="all-product-info-price"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    <div>
+
+    </div>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc= function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</body>
+</html>
