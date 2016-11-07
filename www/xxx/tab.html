@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .con1_right {
+            width: 260px;
+        }
+        .con1_right .con1_right-lb {
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+        .con1_right .r-tit-txt {
+            display: block;
+            font-size: 14px;
+            padding:1em 0 3em .5em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            text-decoration: underline;
+        }
+        .con1_right .r-tit-img {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+        .con1_right .r-tit-img .r-lb {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 260px;
+        }
+        .con1_right .r-tit-img .lb-img {
+            display: none;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .con1_right .r-tit-img a,.con1_right .r-tit-img a img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .con1_right .r-lb-c {
+            position: absolute;
+            left: 113px;
+            bottom: 13px;
+        }
+        .con1_right .r-tit-img .lb-circle {
+            width: 5px;
+            height: 5px;
+            background-color: silver;
+            float: left;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .con1_right .r-tit-img .r-lb-c .act {
+            background-color: seagreen;
+        }
+    </style>
+</head>
+<body >
+<div class="con1_right">
+    <div class='con1_right-lb'>
+        <a class="r-tit-txt" href="javascript:;" target="_blank">xxxxxx</a>
+
+        <div class="r-tit-img">
+            <ul class="r-lb">
+                <li class="lb-img" >
+                    <a href=""><img src="../touch/images/0.png" alt=""></a>
+                </li>
+                <li class="lb-img" >
+                    <a href=""><img src="../touch/images/1.png" alt=""></a>
+                </li>
+                <!--<li class="lb-img" >-->
+                    <!--<a href=""><img src="../touch/images/2.png" alt=""></a>-->
+                <!--</li>-->
+            </ul>
+            <ul class="r-lb-c">
+                <li class="lb-circle act"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="jquery-1.8.3.min.js"></script>
+<script>
+    $(function(){
+        (function(){
+            function Slide(parentBox, childBox, circleBox) {
+                this.parentBox = parentBox;
+                this.childBox = childBox;
+                this.circleBox = circleBox;
+            }
+            Slide.prototype.slide = function () {
+                var _this = this;
+                var i = 0;
+                var timer = null;
+                var size = $(_this.childBox).size();
+                if(size > 1){
+                    for (var j = 1; j < size; j++) {
+                        var oLi = "<li class='lb-circle'></li>";
+                        $(".r-lb-c").append(oLi);
+                    }
+                } else {
+                    $(_this.circleBox).hide();
+                }
+                $(_this.childBox).eq(0).show();
+                $(_this.circleBox).click(function() {
+                    $(this).addClass("act").siblings().removeClass("act");
+                    var index = $(this).index();
+                    i = index;
+                    $(_this.childBox).eq(index).fadeIn(300).siblings().fadeOut(300);
+                });
+                timer = setInterval(move, 4500);
+                function move() {
+                    i ++;
+                    if (i === size) {
+                        i = 0;
+                    }
+                    $(_this.circleBox).eq(i).addClass("act").siblings().removeClass("act");
+                    $(_this.childBox).eq(i).fadeIn(300).siblings().fadeOut(300);
+                }
+                $(_this.parentBox).hover(function() {
+                    clearInterval(timer);
+                }, function() {
+                    timer = setInterval(move, 4500)
+                });
+            };
+            window.Slide = Slide;
+        })();
+        //代码初始化
+        var s = new Slide('.r-tit-img .r-lb', '.lb-img', '.r-lb-c>li');
+        s.slide();
+
+    });
+
+
+
+
+
+
+
+
+//        (function(){
+//            function Silde(parentBox, childBox, circleBox, circle) {
+//                this.parentBox = parentBox;
+//                this.childBox = childBox;
+//                this.circleBox = circleBox;
+//                this.circle = circle;
+//            }
+//
+//            Silde.prototype.slide = function () {
+//                var _this = this;
+//                var num = 0;
+//                var numLi = $(_this.childBox).length;
+//                var circle = 0;
+//                var $w = 240;
+//                var timer = null;
+//                var oId = 1;
+//
+//
+//                $(_this.childBox).eq(0).fadeIn();
+//
+//                setInterval(function(){
+//                    num ++ ;
+//
+//                }, 2000);
+//
+//                function move() {
+//                    num++;
+//                    circle
+//                    if (i == numLi) {
+//                        i = 0;
+//                    }
+//                    $(".num li").eq(i).addClass("active").siblings().removeClass("active");
+//                    $(".img li").eq(i).fadeIn(300).siblings().fadeOut(300);
+//
+//                }
+//
+//
+//
+////                $(_this.circle).click(play);
+////                if(numLi <= 1){
+////                    $(_this.circle).hide();
+////                    clearInterval(timer);
+////
+////                } else if(numLi === 3){
+////                    onClone();
+////                    $(_this.circleBox).append('<li class="lb-circle"></li><li class="lb-circle"></li>');
+////
+////                } else if(numLi === 2){
+////                    onClone();
+////                    $(_this.circleBox).append('<li class="lb-circle"></li>');
+////
+////                }
+//                function play() {
+//                    num++;
+//                    circle++;
+//                    if (num > numLi) {
+//                        $(_this.parentBox).css({'left': 0});
+//                        num = 1;
+//                    }
+//                    if (circle > (numLi - 1)) {
+//                        circle = 0;
+//                    }
+//                    $(_this.parentBox).stop().animate({'left': num * -$w}, 500);
+//                    $(_this.circle).eq(circle).addClass('act').siblings().removeClass('act');
+//                }
+////                function onClone(){
+////                    timer = setInterval(play, 4000);
+////                    if ($(_this.childBox).children('img').load){
+////                        $(_this.childBox).eq(0).clone(true).attr('id','picdiv'+oId).appendTo($(_this.parentBox)).show();
+////                        oId += 1;
+////                    }
+////                    $(_this.parentBox).mouseout(function () {
+////                        timer = setInterval(play, 4000);
+////                    });
+////                }
+////
+////                $(_this.parentBox).mouseover(function () {
+////                    clearInterval(timer);
+////                });
+////
+////                $(_this.circle).click(function () {
+////                    var index = $(this).index();
+////                    circle = index;
+////                    num = index;
+////                    $(_this.parentBox).stop().animate({'left': index * -$w}, 500);
+////                    $(this).addClass('act').siblings().removeClass('act');
+////                });
+//
+//
+//            };
+//            window.Silde = Silde;
+//        })();
+//
+//
+//        var s = new Silde('.r-tit-img .r-lb', '.lb-img', '.r-lb-c', '.r-lb-c>li');
+//        s.slide();
+
+</script>
